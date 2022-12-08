@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>Discord.NET</title>
+	<atom:link href="https://14a-ma.github.io/feed/" rel="self" type="application/rss+xml" />
+	<link>https://14a-ma.github.io</link>
+	<description>Bevezető a Discord.NET keretrendszer világába</description>
+	<lastBuildDate>Thu, 08 Dec 2022 16:33:36 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.1.1</generator>
+	<item>
+		<title>Discord Bot létrehozása</title>
+		<link>https://14a-ma.github.io/2022/12/07/discord-bot-letrehozasa/</link>
+		
+		<dc:creator><![CDATA[m-attila]]></dc:creator>
+		<pubDate>Wed, 07 Dec 2022 07:14:25 +0000</pubDate>
+				<guid isPermaLink="false">https://14a-ma.github.io/?p=5</guid>
+
+					<description><![CDATA[Első és legfontosabb lépés, hogy legyen egy létező Botunk, amibe aztán észt programozhatunk. Ehhez mindössze el kell látogatnunk a https://discord.dev/ oldalra, ahol bejelentkezés után lehetőségünk lesz létrehozni egy új Application-t. Egy név megadása után létre is jön az applikáció, azonban Bot még nem. A Bot menüpontra kell menni, ahol az Add Bot gombra rányomva lesz [&#8230;]]]></description>
+										<content:encoded><![CDATA[
+<p>Első és legfontosabb lépés, hogy legyen egy létező <strong>Bot</strong>unk, amibe aztán észt programozhatunk.</p>
+
+
+
+<p>Ehhez mindössze el kell látogatnunk a <a rel="noreferrer noopener" href="https://discord.dev/" target="_blank">https://discord.dev/</a> oldalra, ahol bejelentkezés után lehetőségünk lesz létrehozni egy új <code>Application</code>-t. Egy név megadása után létre is jön az applikáció, azonban Bot még nem. A <code>Bot</code> menüpontra kell menni, ahol az <code>Add Bot</code> gombra rányomva lesz véglegesen létrehozva egy User az applikációnk számára, amivel a Discord-on belül interaktálhatunk a többi felhasználóval.</p>
+
+
+
+<figure class="wp-block-image size-full"><img decoding="async" width="1920" height="1080" src="https://14a-ma.github.io/wp-content/uploads/2022/12/image.png" alt="" class="wp-image-21"/></figure>
+
+
+
+<p>Ezen az oldalon sok hasznos beállítást találunk. Mindegyikhez van egy kis leírás, de a legfontosabbak a <code>Privileged Gateway Intents</code> részben találhatóak. Ezek bekapcsolásával a botunk több dologgal fog tudni foglalkozni, de ha több, mint 100 szerverre behívnák, akkor ezekhez engedélyt kell majd kérni. Tanuláshoz nyugodtan be lehet kapcsolni mindet.</p>
+
+
+
+<figure class="wp-block-image size-full"><img decoding="async" loading="lazy" width="1447" height="678" src="https://14a-ma.github.io/wp-content/uploads/2022/12/image-1.png" alt="" class="wp-image-22"/></figure>
+
+
+
+<p>Végül, de nem utolsó sorban, egy fontos adat erről az oldalról a <strong>Token</strong>. Ezt a <code>Reset Token</code> gombra kattintva lehet megtekinteni. Másoljuk ki és tegyük el valahova ideiglenesen, mert ennek a hosszú kódnak a segítségével tudunk majd belépni a Discord-ra a bottal.</p>
+
+
+
+<p>Most hogy ez megvan, hívjuk be egy szerverre, ahol majd teszteljük a működését. Az <code>OAuth2</code> menüpontot nyissuk le. A General-ban tudunk beállítani alapértelmezett jogosultságokat, ami akkor lehet hasznos, ha a bot <strong>profil</strong>jára szeretnénk tenni egy <code>Add to Server</code> gombot. Most viszont először az <code>URL Generator</code>-ra van szükségünk.<br>A <code>scope</code>-ok közül válasszuk ki a <code>bot</code>-ot, mert egy botot akarunk beléptetni, illetve az <code>applications.commands</code>-ot, hogy létre tudjunk hozni <strong>parancsokat</strong>.<br>A <code>Bot Permission</code>-ök közül az egyszerűség kedvéért válasszuk ki az <code>Administrator</code>-t. Persze, ha rendes botot készítenénk, akkor csakis a szükségeseket kapcsoljuk be.<br>Ezek után már csak ki kell másolni a lent létrejött linket, megnyitni és kiválasztani, hogy hova szeretnénk behívni a botot.</p>
+
+
+
+<figure class="wp-block-image size-full"><img decoding="async" loading="lazy" width="1162" height="1014" src="https://14a-ma.github.io/wp-content/uploads/2022/12/image-2.png" alt="" class="wp-image-24"/></figure>
+
+
+
+<p>Ezzel kész is vagyunk. A következő posztban létrehozunk egy C# projektet a botnak, megírjuk a kódot, hogy online legyen és néhány alap dolgot elmagyarázok.</p>
+]]></content:encoded>
+					
+		
+		
+			</item>
+	</channel>
+</rss>
