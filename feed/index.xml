@@ -12,7 +12,7 @@
 	<atom:link href="https://14a-ma.github.io/feed/" rel="self" type="application/rss+xml" />
 	<link>https://14a-ma.github.io</link>
 	<description>Bevezető a Discord.NET keretrendszer világába</description>
-	<lastBuildDate>Thu, 08 Dec 2022 18:37:56 +0000</lastBuildDate>
+	<lastBuildDate>Thu, 08 Dec 2022 20:33:07 +0000</lastBuildDate>
 	<language>en-US</language>
 	<sy:updatePeriod>
 	hourly	</sy:updatePeriod>
@@ -20,12 +20,367 @@
 	1	</sy:updateFrequency>
 	<generator>https://wordpress.org/?v=6.1.1</generator>
 	<item>
+		<title>Interaction parancsok</title>
+		<link>https://14a-ma.github.io/2022/12/08/interaction-parancsok/</link>
+		
+		<dc:creator><![CDATA[m-attila]]></dc:creator>
+		<pubDate>Thu, 08 Dec 2022 19:11:37 +0000</pubDate>
+				<category><![CDATA[Discord.NET]]></category>
+		<guid isPermaLink="false">https://14a-ma.github.io/?p=39</guid>
+
+					<description><![CDATA[A legegyértelműbb kommunikációs forma a parancsok használata. Erre a feladatra egy csodálatos keretrendszer áll rendelkezésünkre. Hozzunk is létre gyorsan egy mappát a parancsaiknak, abba pedig egy új C# fájlt. Próbálgatni a dolgokat én készítek egy Test parancsot. A namespace-t annyival módosítom, hogy kövesse a mappastruktúrát. Ezzel egy nagyon egyszerű parancs létre is lett hozva. Most [&#8230;]]]></description>
+										<content:encoded><![CDATA[
+<p>A legegyértelműbb kommunikációs forma a <strong>parancsok</strong> használata. Erre a feladatra egy csodálatos <strong>keretrendszer</strong> áll rendelkezésünkre.</p>
+
+
+
+<p>Hozzunk is létre gyorsan egy mappát a parancsaiknak, abba pedig egy új <code>C#</code> fájlt. Próbálgatni a dolgokat én készítek egy <code>Test</code> parancsot. A <code>namespace</code>-t annyival módosítom, hogy kövesse a mappastruktúrát.</p>
+
+
+
+<div class="wp-block-kevinbatdorf-code-block-pro" style="font-size:.875rem;line-height:1.25rem"><span role="button" tabindex="0" data-code="using Discord.Interactions;
+
+namespace DNetTutorial.Commands;
+
+// Az InteractionModuleBase-ből örökölünk, hogy a Discord.Interactions-ben
+// lévő metódusokat használhassuk.
+public class Test : InteractionModuleBase
+{
+	[RequireOwner] // Hogy csak a tulajdonos használhassa
+	[SlashCommand(&quot;test&quot;, &quot;Teszt parancs&quot;)] // (név, leírás)
+	public async Task Run()
+	{
+		await RespondAsync(&quot;Hello World!&quot;);
+	}
+}
+" style="color:#abb2bf;display:none" aria-label="Copy" class="code-block-pro-copy-button"><svg xmlns="http://www.w3.org/2000/svg" style="width:24px;height:24px" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path class="with-check" stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path><path class="without-check" stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path></svg></span><pre class="shiki" style="background-color: #282c34"><code><span class="line"><span style="color: #C678DD">using</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Discord</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">Interactions</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #C678DD">namespace</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">DNetTutorial</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">Commands</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #7F848E">// Az InteractionModuleBase-ből örökölünk, hogy a Discord.Interactions-ben</span></span>
+<span class="line"><span style="color: #7F848E">// lévő metódusokat használhassuk.</span></span>
+<span class="line"><span style="color: #C678DD">public</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">class</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Test</span><span style="color: #ABB2BF"> : </span><span style="color: #E5C07B">InteractionModuleBase</span></span>
+<span class="line"><span style="color: #ABB2BF">{</span></span>
+<span class="line"><span style="color: #ABB2BF">	[</span><span style="color: #E5C07B">RequireOwner</span><span style="color: #ABB2BF">] </span><span style="color: #7F848E">// Hogy csak a tulajdonos használhassa</span></span>
+<span class="line"><span style="color: #ABB2BF">	[</span><span style="color: #E5C07B">SlashCommand</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;test&quot;</span><span style="color: #ABB2BF">, </span><span style="color: #98C379">&quot;Teszt parancs&quot;</span><span style="color: #ABB2BF">)] </span><span style="color: #7F848E">// (név, leírás)</span></span>
+<span class="line"><span style="color: #ABB2BF">	</span><span style="color: #C678DD">public</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">async</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Task</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">Run</span><span style="color: #ABB2BF">()</span></span>
+<span class="line"><span style="color: #ABB2BF">	{</span></span>
+<span class="line"><span style="color: #ABB2BF">		</span><span style="color: #C678DD">await</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">RespondAsync</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;Hello World!&quot;</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #ABB2BF">	}</span></span>
+<span class="line"><span style="color: #ABB2BF">}</span></span>
+<span class="line"></span></code></pre></div>
+
+
+
+<p>Ezzel egy nagyon egyszerű parancs létre is lett hozva. Most menjünk vissza a <code>kiinduló osztályunkhoz</code>, hogy elkészítsük a logikát, ami meg fogja hívni a megfelelő parancs metódusát.</p>
+
+
+
+<div class="wp-block-kevinbatdorf-code-block-pro cbp-blur-enabled cbp-unblur-on-hover" style="font-size:.875rem;line-height:1.25rem"><span role="button" tabindex="0" data-code="using Discord;
+using Discord.Interactions;
+using Discord.WebSocket;
+using Microsoft.Extensions.DependencyInjection; // NuGet-ről kell telepíteni
+
+namespace DNetTutorial;
+
+public class DNetTutorial
+{
+	private readonly IServiceProvider services;
+
+	public DiscordSocketClient Client { get; }
+	// A Discord Interactions API-val kommunikáló osztály
+	public InteractionService Interaction { get; }
+
+	public DNetTutorial()
+	{
+		Client = new();
+		Interaction = new(Client);
+
+		// Összegyűjtjük a szükséges osztályokat, hogy injektálva
+		// lehessenek. Ez azért hasznos, mert így nem kell mindenhol
+		// újra példányosítani az osztályokat. Az eltárolt értékek is
+		// megmaradnak. A parancsoknál is könnyedén elérhetőek lesznek.
+		this.services = new ServiceCollection()
+			.AddSingleton(Client)
+			.AddSingleton(Interaction)
+			.BuildServiceProvider();
+	}
+
+	public async Task MainAsync()
+	{
+		Client.Log += Log;
+
+		string token = &quot;A.TOKEN.AMIT.KIMÁSOLTÁL&quot;;
+
+		await Client.LoginAsync(TokenType.Bot, token);
+		await Client.StartAsync();
+
+		// Minden perjeles parancs használatánál lefut ez a metódus.
+		Client.SlashCommandExecuted += async (interaction) =&gt;
+		{
+			// Itt létrehozunk egy Context-et, amiben eltárol
+			// néhány hasznos információt, amit a parancsok 
+			// használnak/használhatnak.
+			SocketInteractionContext context = new(
+				Client, interaction);
+			// Majd kegyes egszerűséggel futtatjuk a parancsot.
+			await Interaction.ExecuteCommandAsync(
+				context, this.services);
+		};
+
+		// Ha a bot elindult, akkor ez a metódus fog lefutni.
+		Client.Ready += async () =&gt;
+		{
+			// Ez a metódus megkeresi az összes osztály a
+			// projektünkben, ami örökli a korábban a parancsnál
+			// használt ModuleBase osztályt.
+			await Interaction.AddModulesAsync(
+				typeof(DNetTutorial).Assembly, this.services);
+
+			// Az már ismert modulok segítségével regisztráljuk a
+			// létrehozott parancsokat egy általunk kiválasztott
+			// szerverre.
+			// A true azt jelenti, hogy törli azokat a parancsokat,
+			// amiket nem talál meg a modulok között.
+			await Interaction.RegisterCommandsToGuildAsync(
+				712287958274801695, true);
+		};
+
+		await Task.Delay(-1);
+	}
+
+	private Task Log(LogMessage message)
+	{
+		Console.WriteLine(message.ToString());
+		return Task.CompletedTask;
+	}
+}
+" style="color:#abb2bf;display:none" aria-label="Copy" class="code-block-pro-copy-button"><svg xmlns="http://www.w3.org/2000/svg" style="width:24px;height:24px" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path class="with-check" stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path><path class="without-check" stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path></svg></span><pre class="shiki" style="background-color: #282c34"><code><span class="line"><span style="color: #C678DD">using</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Discord</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #C678DD">using</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Discord</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">Interactions</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #C678DD">using</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Discord</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">WebSocket</span><span style="color: #ABB2BF">;</span></span>
+<span class="line cbp-no-blur"><span style="color: #C678DD">using</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Microsoft</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">Extensions</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">DependencyInjection</span><span style="color: #ABB2BF">; </span><span style="color: #7F848E">// NuGet-ről kell telepíteni</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #C678DD">namespace</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">DNetTutorial</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #C678DD">public</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">class</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">DNetTutorial</span></span>
+<span class="line"><span style="color: #ABB2BF">{</span></span>
+<span class="line"><span style="color: #ABB2BF">	</span><span style="color: #C678DD">private</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">readonly</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">IServiceProvider</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">services</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #ABB2BF">	</span><span style="color: #C678DD">public</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">DiscordSocketClient</span><span style="color: #ABB2BF"> Client { </span><span style="color: #C678DD">get</span><span style="color: #ABB2BF">; }</span></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">	</span><span style="color: #7F848E">// A Discord Interactions API-val kommunikáló osztály</span></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">	</span><span style="color: #C678DD">public</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">InteractionService</span><span style="color: #ABB2BF"> Interaction { </span><span style="color: #C678DD">get</span><span style="color: #ABB2BF">; }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #ABB2BF">	</span><span style="color: #C678DD">public</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">DNetTutorial</span><span style="color: #ABB2BF">()</span></span>
+<span class="line"><span style="color: #ABB2BF">	{</span></span>
+<span class="line"><span style="color: #ABB2BF">		</span><span style="color: #E06C75">Client</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">new</span><span style="color: #ABB2BF">();</span></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">		</span><span style="color: #E06C75">Interaction</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">new</span><span style="color: #ABB2BF">(</span><span style="color: #E06C75">Client</span><span style="color: #ABB2BF">);</span></span>
+<span class="line cbp-no-blur"></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">		</span><span style="color: #7F848E">// Összegyűjtjük a szükséges osztályokat, hogy injektálva</span></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">		</span><span style="color: #7F848E">// lehessenek. Ez azért hasznos, mert így nem kell mindenhol</span></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">		</span><span style="color: #7F848E">// újra példányosítani az osztályokat. Az eltárolt értékek is</span></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">		</span><span style="color: #7F848E">// megmaradnak. A parancsoknál is könnyedén elérhetőek lesznek.</span></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">		</span><span style="color: #C678DD">this</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">services</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">ServiceCollection</span><span style="color: #ABB2BF">()</span></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">			.</span><span style="color: #61AFEF">AddSingleton</span><span style="color: #ABB2BF">(</span><span style="color: #E06C75">Client</span><span style="color: #ABB2BF">)</span></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">			.</span><span style="color: #61AFEF">AddSingleton</span><span style="color: #ABB2BF">(</span><span style="color: #E06C75">Interaction</span><span style="color: #ABB2BF">)</span></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">			.</span><span style="color: #61AFEF">BuildServiceProvider</span><span style="color: #ABB2BF">();</span></span>
+<span class="line"><span style="color: #ABB2BF">	}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #ABB2BF">	</span><span style="color: #C678DD">public</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">async</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Task</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">MainAsync</span><span style="color: #ABB2BF">()</span></span>
+<span class="line"><span style="color: #ABB2BF">	{</span></span>
+<span class="line"><span style="color: #ABB2BF">		</span><span style="color: #E5C07B">Client</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">Log</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">+=</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">Log</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #ABB2BF">		</span><span style="color: #C678DD">string</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">token</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">&quot;A.TOKEN.AMIT.KIMÁSOLTÁL&quot;</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #ABB2BF">		</span><span style="color: #C678DD">await</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Client</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">LoginAsync</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">TokenType</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">Bot</span><span style="color: #ABB2BF">, </span><span style="color: #E06C75">token</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #ABB2BF">		</span><span style="color: #C678DD">await</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Client</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">StartAsync</span><span style="color: #ABB2BF">();</span></span>
+<span class="line"></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">		</span><span style="color: #7F848E">// Minden perjeles parancs használatánál lefut ez a metódus.</span></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">		</span><span style="color: #E5C07B">Client</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">SlashCommandExecuted</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">+=</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">async</span><span style="color: #ABB2BF"> (</span><span style="color: #E5C07B">interaction</span><span style="color: #ABB2BF">) =&gt;</span></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">		{</span></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">			</span><span style="color: #7F848E">// Itt létrehozunk egy Context-et, amiben eltárol</span></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">			</span><span style="color: #7F848E">// néhány hasznos információt, amit a parancsok </span></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">			</span><span style="color: #7F848E">// használnak/használhatnak.</span></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">			</span><span style="color: #E5C07B">SocketInteractionContext</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">context</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">new</span><span style="color: #ABB2BF">(</span></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">				</span><span style="color: #E06C75">Client</span><span style="color: #ABB2BF">, </span><span style="color: #E06C75">interaction</span><span style="color: #ABB2BF">);</span></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">			</span><span style="color: #7F848E">// Majd kegyes egszerűséggel futtatjuk a parancsot.</span></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">			</span><span style="color: #C678DD">await</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Interaction</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">ExecuteCommandAsync</span><span style="color: #ABB2BF">(</span></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">				</span><span style="color: #E06C75">context</span><span style="color: #ABB2BF">, </span><span style="color: #C678DD">this</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">services</span><span style="color: #ABB2BF">);</span></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">		};</span></span>
+<span class="line cbp-no-blur"></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">		</span><span style="color: #7F848E">// Ha a bot elindult, akkor ez a metódus fog lefutni.</span></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">		</span><span style="color: #E5C07B">Client</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">Ready</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">+=</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">async</span><span style="color: #ABB2BF"> () =&gt;</span></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">		{</span></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">			</span><span style="color: #7F848E">// Ez a metódus megkeresi az összes osztály a</span></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">			</span><span style="color: #7F848E">// projektünkben, ami örökli a korábban a parancsnál</span></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">			</span><span style="color: #7F848E">// használt ModuleBase osztályt.</span></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">			</span><span style="color: #C678DD">await</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Interaction</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">AddModulesAsync</span><span style="color: #ABB2BF">(</span></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">				</span><span style="color: #C678DD">typeof</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">DNetTutorial</span><span style="color: #ABB2BF">).</span><span style="color: #E5C07B">Assembly</span><span style="color: #ABB2BF">, </span><span style="color: #C678DD">this</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">services</span><span style="color: #ABB2BF">);</span></span>
+<span class="line cbp-no-blur"></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">			</span><span style="color: #7F848E">// Az már ismert modulok segítségével regisztráljuk a</span></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">			</span><span style="color: #7F848E">// létrehozott parancsokat egy általunk kiválasztott</span></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">			</span><span style="color: #7F848E">// szerverre.</span></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">			</span><span style="color: #7F848E">// A true azt jelenti, hogy törli azokat a parancsokat,</span></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">			</span><span style="color: #7F848E">// amiket nem talál meg a modulok között.</span></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">			</span><span style="color: #C678DD">await</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Interaction</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">RegisterCommandsToGuildAsync</span><span style="color: #ABB2BF">(</span></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">				</span><span style="color: #D19A66">712287958274801695</span><span style="color: #ABB2BF">, </span><span style="color: #D19A66">true</span><span style="color: #ABB2BF">);</span></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">		};</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #ABB2BF">		</span><span style="color: #C678DD">await</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Task</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">Delay</span><span style="color: #ABB2BF">(</span><span style="color: #56B6C2">-</span><span style="color: #D19A66">1</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #ABB2BF">	}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #ABB2BF">	</span><span style="color: #C678DD">private</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Task</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">Log</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">LogMessage</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">message</span><span style="color: #ABB2BF">)</span></span>
+<span class="line"><span style="color: #ABB2BF">	{</span></span>
+<span class="line"><span style="color: #ABB2BF">		</span><span style="color: #E5C07B">Console</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">WriteLine</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">message</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">ToString</span><span style="color: #ABB2BF">());</span></span>
+<span class="line"><span style="color: #ABB2BF">		</span><span style="color: #C678DD">return</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Task</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">CompletedTask</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #ABB2BF">	}</span></span>
+<span class="line"><span style="color: #ABB2BF">}</span></span>
+<span class="line"></span></code></pre></div>
+
+
+
+<p>Ezennel el is készült minden, ami a parancs futtatásához szükséges. Innentől akármennyit létrehozhatunk, és biztosak lehetünk benne, hogy regisztrálva lesz és használható.<br>Ha futtatjuk a <code>/test</code> parancsot, akkor a botunk válaszol is az előre beállított szöveggel.</p>
+
+
+
+<figure class="wp-block-image size-full"><img decoding="async" width="1238" height="982" src="https://14a-ma.github.io/wp-content/uploads/2022/12/image-4.png" alt="" class="wp-image-48"/></figure>
+
+
+
+<p>Az egyszerű parancsok unalmasak. Mi lenne ha parancs csoportokat csinálnánk? Szerencsére ehhez szinte semmi speciálisat nem kell csinálni. Menjünk vissza a <code>Test</code> parancsunkhoz és csináljunk belőle <strong>al-parancsot</strong>!<br>És ha már itt vagyunk és al-parancsokkal szórakozunk, akkor készítsünk még néhányat!</p>
+
+
+
+<div class="wp-block-kevinbatdorf-code-block-pro cbp-has-line-numbers cbp-blur-enabled cbp-unblur-on-hover" style="font-size:.875rem;--cbp-line-number-color:#abb2bf;--cbp-line-number-width:15.399993896484375px;line-height:1.25rem"><span role="button" tabindex="0" data-code="using Discord;
+using Discord.Interactions;
+using Discord.WebSocket;
+
+namespace DNetTutorial.Commands;
+
+[RequireOwner] // Így az összes al-parancsot csak a tulajdonos használhatja
+[Group(&quot;test&quot;, &quot;Teszt parancsok&quot;)] // (név, leírás)
+public class Test : InteractionModuleBase
+{
+	// Ha létrehozunk egy publikusan elérhető property-t, akkor azt a
+	// DI automatikusan beinjektálja a fő osztályunkban lévő property-k
+	// alapján, ha a név megegyezik. Ebben a példában a klienst kérjük
+	// be, hogy az egyik parancsban kiolvashassunk belőle egy
+	// információt.
+	public DiscordSocketClient Client { get; set;}
+
+	[SlashCommand(&quot;hello-world&quot;, &quot;Hello World parancs&quot;)]
+	public async Task HelloWorld()
+	{
+		await RespondAsync(&quot;Hello World!&quot;);
+	}
+
+	// A metódus paraméterei a parancsban megadott argumentumok.
+	// A Summary attribútummal felülírhatjuk a paraméterek nevét és
+	// leírását.
+	[SlashCommand(&quot;hi&quot;, &quot;Üdvözlő parancs&quot;)]
+	public async Task Hi(
+		[Summary(name: &quot;Tag&quot;, description: &quot;Akit üdvözölünk&quot;)]
+		IUser user)
+	{
+		await RespondAsync($&quot;Hello {user.Mention}!&quot;);
+	}
+
+	// Most nem számuljuk ki a bot pingjét, hanem csak kipróbáljuk,
+	// hogyan lehet megemlíteni az aktuális felhasználót.
+	[SlashCommand(&quot;ping&quot;, &quot;Ping parancs&quot;)]
+	public async Task Ping()
+	{
+		// A Context változóban találunk jópár hasznos dolgot.
+		await RespondAsync($&quot;Pong! {Context.User.Mention}&quot;);
+	}
+
+	[SlashCommand(&quot;guild-count&quot;, &quot;Szerverek száma, ahol a bot bent van&quot;)]
+	public async Task GuildCount()
+	{
+		await RespondAsync($&quot;A bot **`{Client.Guilds.Count}`** szerveren van bent.&quot;);
+	}
+}
+" style="color:#abb2bf;display:none" aria-label="Copy" class="code-block-pro-copy-button"><svg xmlns="http://www.w3.org/2000/svg" style="width:24px;height:24px" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path class="with-check" stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path><path class="without-check" stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path></svg></span><pre class="shiki" style="background-color: #282c34"><code><span class="line cbp-no-blur"><span style="color: #C678DD">using</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Discord</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #C678DD">using</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Discord</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">Interactions</span><span style="color: #ABB2BF">;</span></span>
+<span class="line cbp-no-blur"><span style="color: #C678DD">using</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Discord</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">WebSocket</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #C678DD">namespace</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">DNetTutorial</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">Commands</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">[</span><span style="color: #E5C07B">RequireOwner</span><span style="color: #ABB2BF">] </span><span style="color: #7F848E">// Így az összes al-parancsot csak a tulajdonos használhatja</span></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">[</span><span style="color: #E5C07B">Group</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;test&quot;</span><span style="color: #ABB2BF">, </span><span style="color: #98C379">&quot;Teszt parancsok&quot;</span><span style="color: #ABB2BF">)] </span><span style="color: #7F848E">// (név, leírás)</span></span>
+<span class="line"><span style="color: #C678DD">public</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">class</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Test</span><span style="color: #ABB2BF"> : </span><span style="color: #E5C07B">InteractionModuleBase</span></span>
+<span class="line"><span style="color: #ABB2BF">{</span></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">	</span><span style="color: #7F848E">// Ha létrehozunk egy publikusan elérhető property-t, akkor azt a</span></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">	</span><span style="color: #7F848E">// DI automatikusan beinjektálja a fő osztályunkban lévő property-k</span></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">	</span><span style="color: #7F848E">// alapján, ha a név megegyezik. Ebben a példában a klienst kérjük</span></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">	</span><span style="color: #7F848E">// be, hogy az egyik parancsban kiolvashassunk belőle egy</span></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">	</span><span style="color: #7F848E">// információt.</span></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">	</span><span style="color: #C678DD">public</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">DiscordSocketClient</span><span style="color: #ABB2BF"> Client { </span><span style="color: #C678DD">get</span><span style="color: #ABB2BF">; </span><span style="color: #C678DD">set</span><span style="color: #ABB2BF">;}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #ABB2BF">	[</span><span style="color: #E5C07B">SlashCommand</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;hello-world&quot;</span><span style="color: #ABB2BF">, </span><span style="color: #98C379">&quot;Hello World parancs&quot;</span><span style="color: #ABB2BF">)]</span></span>
+<span class="line"><span style="color: #ABB2BF">	</span><span style="color: #C678DD">public</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">async</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Task</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">HelloWorld</span><span style="color: #ABB2BF">()</span></span>
+<span class="line"><span style="color: #ABB2BF">	{</span></span>
+<span class="line"><span style="color: #ABB2BF">		</span><span style="color: #C678DD">await</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">RespondAsync</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;Hello World!&quot;</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #ABB2BF">	}</span></span>
+<span class="line"></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">	</span><span style="color: #7F848E">// A metódus paraméterei a parancsban megadott argumentumok.</span></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">	</span><span style="color: #7F848E">// A Summary attribútummal felülírhatjuk a paraméterek nevét és</span></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">	</span><span style="color: #7F848E">// leírását.</span></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">	[</span><span style="color: #E5C07B">SlashCommand</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;hi&quot;</span><span style="color: #ABB2BF">, </span><span style="color: #98C379">&quot;Üdvözlő parancs&quot;</span><span style="color: #ABB2BF">)]</span></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">	</span><span style="color: #C678DD">public</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">async</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Task</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">Hi</span><span style="color: #ABB2BF">(</span></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">		[</span><span style="color: #E5C07B">Summary</span><span style="color: #ABB2BF">(</span><span style="color: #E06C75">name</span><span style="color: #ABB2BF">: </span><span style="color: #98C379">&quot;Tag&quot;</span><span style="color: #ABB2BF">, </span><span style="color: #E06C75">description</span><span style="color: #ABB2BF">: </span><span style="color: #98C379">&quot;Akit üdvözölünk&quot;</span><span style="color: #ABB2BF">)]</span></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">		</span><span style="color: #E5C07B">IUser</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">user</span><span style="color: #ABB2BF">)</span></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">	{</span></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">		</span><span style="color: #C678DD">await</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">RespondAsync</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">$&quot;Hello {</span><span style="color: #E5C07B">user</span><span style="color: #98C379">.</span><span style="color: #E5C07B">Mention</span><span style="color: #98C379">}!&quot;</span><span style="color: #ABB2BF">);</span></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">	}</span></span>
+<span class="line cbp-no-blur"></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">	</span><span style="color: #7F848E">// Most nem számuljuk ki a bot pingjét, hanem csak kipróbáljuk,</span></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">	</span><span style="color: #7F848E">// hogyan lehet megemlíteni az aktuális felhasználót.</span></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">	[</span><span style="color: #E5C07B">SlashCommand</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;ping&quot;</span><span style="color: #ABB2BF">, </span><span style="color: #98C379">&quot;Ping parancs&quot;</span><span style="color: #ABB2BF">)]</span></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">	</span><span style="color: #C678DD">public</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">async</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Task</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">Ping</span><span style="color: #ABB2BF">()</span></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">	{</span></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">		</span><span style="color: #7F848E">// A Context változóban találunk jópár hasznos dolgot.</span></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">		</span><span style="color: #C678DD">await</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">RespondAsync</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">$&quot;Pong! {</span><span style="color: #E5C07B">Context</span><span style="color: #98C379">.</span><span style="color: #E5C07B">User</span><span style="color: #98C379">.</span><span style="color: #E5C07B">Mention</span><span style="color: #98C379">}&quot;</span><span style="color: #ABB2BF">);</span></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">	}</span></span>
+<span class="line cbp-no-blur"></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">	[</span><span style="color: #E5C07B">SlashCommand</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;guild-count&quot;</span><span style="color: #ABB2BF">, </span><span style="color: #98C379">&quot;Szerverek száma, ahol a bot bent van&quot;</span><span style="color: #ABB2BF">)]</span></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">	</span><span style="color: #C678DD">public</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">async</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Task</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">GuildCount</span><span style="color: #ABB2BF">()</span></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">	{</span></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">		</span><span style="color: #C678DD">await</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">RespondAsync</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">$&quot;A bot **`{</span><span style="color: #E5C07B">Client</span><span style="color: #98C379">.</span><span style="color: #E5C07B">Guilds</span><span style="color: #98C379">.</span><span style="color: #E5C07B">Count</span><span style="color: #98C379">}`** szerveren van bent.&quot;</span><span style="color: #ABB2BF">);</span></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">	}</span></span>
+<span class="line"><span style="color: #ABB2BF">}</span></span>
+<span class="line"></span></code></pre></div>
+
+
+
+<p>Végül nézzük meg Discord-on, hogy mit alkottunk. A parancsok mind megjelennek ugyan abban a kategóriában.</p>
+
+
+
+<figure class="wp-block-image size-full"><img decoding="async" loading="lazy" width="1239" height="980" src="https://14a-ma.github.io/wp-content/uploads/2022/12/image-5.png" alt="" class="wp-image-54"/></figure>
+
+
+
+<p>Az egyes parancsokat futtatva, pedig ezeket a válaszokat kapjuk:</p>
+
+
+
+<figure class="wp-block-image size-full"><img decoding="async" loading="lazy" width="1234" height="982" src="https://14a-ma.github.io/wp-content/uploads/2022/12/image-6.png" alt="" class="wp-image-55"/></figure>
+
+
+
+<p>Köszönöm, hogy végigolvastad ezt az egyszerű kis tutorialt! Remélem tanultál valami újat. Ha meglesnéd a kész botot, akkor látogass el <a rel="noreferrer noopener" href="https://github.com/14A-MA/DNetTutorial" target="_blank">Github Repository</a>-jába. További információt a Discord.NET-ről a <a rel="noreferrer noopener" href="https://discordnet.dev/" target="_blank">hivatalos oldalukon</a> találsz.</p>
+]]></content:encoded>
+					
+		
+		
+			</item>
+		<item>
 		<title>Discord.NET &#8211; Első lépések</title>
 		<link>https://14a-ma.github.io/2022/12/08/discord-net-elso-lepesek/</link>
 		
 		<dc:creator><![CDATA[m-attila]]></dc:creator>
 		<pubDate>Thu, 08 Dec 2022 17:04:58 +0000</pubDate>
-				<category><![CDATA[Egyéb kategória]]></category>
+				<category><![CDATA[Discord.NET]]></category>
 		<guid isPermaLink="false">https://14a-ma.github.io/?p=27</guid>
 
 					<description><![CDATA[Az előző posztban létrehoztunk egy botot, amit most online állapotba fogunk csatlakozni. A legújabb .NET verzió, amit a könyvtár jelenleg támogat az a 6-os, így azt fogjuk használni. Nulladik lépésnek ajánlom ezt a C# template-et, amit én készítettem kifejezetten VSCode-hoz. Ha inkább használnál Visual Studio-t, akkor hozz létre azon belül egy .NET 6-os konzolos applikációt [&#8230;]]]></description>
@@ -50,7 +405,7 @@
 
 
 
-<div class="wp-block-kevinbatdorf-code-block-pro" style="font-size:.875rem;line-height:1.25rem"><span style="display:block;padding:16px 0 0 16px;margin-bottom:-1px;width:100%;text-align:left;background-color:#282c34"><svg xmlns="http://www.w3.org/2000/svg" width="54" height="14" viewBox="0 0 54 14"><g fill="none" fill-rule="evenodd" transform="translate(1 1)"><circle cx="6" cy="6" r="6" fill="#FF5F56" stroke="#E0443E" stroke-width=".5"></circle><circle cx="26" cy="6" r="6" fill="#FFBD2E" stroke="#DEA123" stroke-width=".5"></circle><circle cx="46" cy="6" r="6" fill="#27C93F" stroke="#1AAB29" stroke-width=".5"></circle></g></svg></span><span role="button" tabindex="0" data-code="using Discord;
+<div class="wp-block-kevinbatdorf-code-block-pro" style="font-size:.875rem;line-height:1.25rem"><span role="button" tabindex="0" data-code="using Discord;
 using Discord.WebSocket;
 
 namespace DNetTutorial;
@@ -58,11 +413,11 @@ namespace DNetTutorial;
 public class DNetTutorial
 {
 	// A kliens, ami a Discord API-val kommunikál
-	private readonly DiscordSocketClient client;
+	public DiscordSocketClient Client { get; }
 
 	public DNetTutorial()
 	{
-		this.client = new DiscordSocketClient();
+		Client = new();
 	}
 
 	// Innen indul a bot.
@@ -74,9 +429,9 @@ public class DNetTutorial
 
 	// Log metódus kifejezetten a Discord.NET-hez.
 	// Minden fontosabb történést fog logolni formázva. 
-	private Task Log(LogMessage msg)
+	private Task Log(LogMessage message)
 	{
-		Console.WriteLine(msg.ToString());
+		Console.WriteLine(message.ToString());
 		return Task.CompletedTask;
 	}
 }" style="color:#abb2bf;display:none" aria-label="Copy" class="code-block-pro-copy-button"><svg xmlns="http://www.w3.org/2000/svg" style="width:24px;height:24px" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path class="with-check" stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path><path class="without-check" stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path></svg></span><pre class="shiki" style="background-color: #282c34"><code><span class="line"><span style="color: #C678DD">using</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Discord</span><span style="color: #ABB2BF">;</span></span>
@@ -87,11 +442,11 @@ public class DNetTutorial
 <span class="line"><span style="color: #C678DD">public</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">class</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">DNetTutorial</span></span>
 <span class="line"><span style="color: #ABB2BF">{</span></span>
 <span class="line"><span style="color: #ABB2BF">	</span><span style="color: #7F848E">// A kliens, ami a Discord API-val kommunikál</span></span>
-<span class="line"><span style="color: #ABB2BF">	</span><span style="color: #C678DD">private</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">readonly</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">DiscordSocketClient</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">client</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #ABB2BF">	</span><span style="color: #C678DD">public</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">DiscordSocketClient</span><span style="color: #ABB2BF"> Client { </span><span style="color: #C678DD">get</span><span style="color: #ABB2BF">; }</span></span>
 <span class="line"></span>
 <span class="line"><span style="color: #ABB2BF">	</span><span style="color: #C678DD">public</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">DNetTutorial</span><span style="color: #ABB2BF">()</span></span>
 <span class="line"><span style="color: #ABB2BF">	{</span></span>
-<span class="line"><span style="color: #ABB2BF">		</span><span style="color: #C678DD">this</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">client</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">DiscordSocketClient</span><span style="color: #ABB2BF">();</span></span>
+<span class="line"><span style="color: #ABB2BF">		</span><span style="color: #E06C75">Client</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">new</span><span style="color: #ABB2BF">();</span></span>
 <span class="line"><span style="color: #ABB2BF">	}</span></span>
 <span class="line"></span>
 <span class="line"><span style="color: #ABB2BF">	</span><span style="color: #7F848E">// Innen indul a bot.</span></span>
@@ -103,9 +458,9 @@ public class DNetTutorial
 <span class="line"></span>
 <span class="line"><span style="color: #ABB2BF">	</span><span style="color: #7F848E">// Log metódus kifejezetten a Discord.NET-hez.</span></span>
 <span class="line"><span style="color: #ABB2BF">	</span><span style="color: #7F848E">// Minden fontosabb történést fog logolni formázva. </span></span>
-<span class="line"><span style="color: #ABB2BF">	</span><span style="color: #C678DD">private</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Task</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">Log</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">LogMessage</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">msg</span><span style="color: #ABB2BF">)</span></span>
+<span class="line"><span style="color: #ABB2BF">	</span><span style="color: #C678DD">private</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Task</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">Log</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">LogMessage</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">message</span><span style="color: #ABB2BF">)</span></span>
 <span class="line"><span style="color: #ABB2BF">	{</span></span>
-<span class="line"><span style="color: #ABB2BF">		</span><span style="color: #E5C07B">Console</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">WriteLine</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">msg</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">ToString</span><span style="color: #ABB2BF">());</span></span>
+<span class="line"><span style="color: #ABB2BF">		</span><span style="color: #E5C07B">Console</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">WriteLine</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">message</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">ToString</span><span style="color: #ABB2BF">());</span></span>
 <span class="line"><span style="color: #ABB2BF">		</span><span style="color: #C678DD">return</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Task</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">CompletedTask</span><span style="color: #ABB2BF">;</span></span>
 <span class="line"><span style="color: #ABB2BF">	}</span></span>
 <span class="line"><span style="color: #ABB2BF">}</span></span></code></pre></div>
@@ -116,29 +471,29 @@ public class DNetTutorial
 
 
 
-<div class="wp-block-kevinbatdorf-code-block-pro cbp-blur-enabled cbp-unblur-on-hover" style="font-size:.875rem;line-height:1.25rem"><span style="display:block;padding:16px 0 0 16px;margin-bottom:-1px;width:100%;text-align:left;background-color:#282c34"><svg xmlns="http://www.w3.org/2000/svg" width="54" height="14" viewBox="0 0 54 14"><g fill="none" fill-rule="evenodd" transform="translate(1 1)"><circle cx="6" cy="6" r="6" fill="#FF5F56" stroke="#E0443E" stroke-width=".5"></circle><circle cx="26" cy="6" r="6" fill="#FFBD2E" stroke="#DEA123" stroke-width=".5"></circle><circle cx="46" cy="6" r="6" fill="#27C93F" stroke="#1AAB29" stroke-width=".5"></circle></g></svg></span><span role="button" tabindex="0" data-code="using Discord;
+<div class="wp-block-kevinbatdorf-code-block-pro cbp-blur-enabled cbp-unblur-on-hover" style="font-size:.875rem;line-height:1.25rem"><span role="button" tabindex="0" data-code="using Discord;
 using Discord.WebSocket;
 
 namespace DNetTutorial;
 
 public class DNetTutorial
 {
-	private readonly DiscordSocketClient client;
+	public DiscordSocketClient Client { get; }
 
 	public DNetTutorial()
 	{
-		this.client = new DiscordSocketClient();
+		Client = new();
 	}
 
 	public async Task MainAsync()
 	{
-		this.client.Log += Log;
+		Client.Log += Log;
 
 		// !!! A token-edet így ne tedd ki publikusan sehova !!!
 		string token = &quot;A.BOTOD.TOKENE.AMIT.KIMÁSOLTÁL&quot;;
 
-		await this.client.LoginAsync(TokenType.Bot, token);
-		await this.client.StartAsync();
+		await Client.LoginAsync(TokenType.Bot, token);
+		await Client.StartAsync();
 
 		await Task.Delay(-1);
 	}
@@ -156,22 +511,22 @@ public class DNetTutorial
 <span class="line"></span>
 <span class="line"><span style="color: #C678DD">public</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">class</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">DNetTutorial</span></span>
 <span class="line"><span style="color: #ABB2BF">{</span></span>
-<span class="line"><span style="color: #ABB2BF">	</span><span style="color: #C678DD">private</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">readonly</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">DiscordSocketClient</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">client</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #ABB2BF">	</span><span style="color: #C678DD">public</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">DiscordSocketClient</span><span style="color: #ABB2BF"> Client { </span><span style="color: #C678DD">get</span><span style="color: #ABB2BF">; }</span></span>
 <span class="line"></span>
 <span class="line"><span style="color: #ABB2BF">	</span><span style="color: #C678DD">public</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">DNetTutorial</span><span style="color: #ABB2BF">()</span></span>
 <span class="line"><span style="color: #ABB2BF">	{</span></span>
-<span class="line"><span style="color: #ABB2BF">		</span><span style="color: #C678DD">this</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">client</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">DiscordSocketClient</span><span style="color: #ABB2BF">();</span></span>
+<span class="line"><span style="color: #ABB2BF">		</span><span style="color: #E06C75">Client</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">new</span><span style="color: #ABB2BF">();</span></span>
 <span class="line"><span style="color: #ABB2BF">	}</span></span>
 <span class="line"></span>
 <span class="line"><span style="color: #ABB2BF">	</span><span style="color: #C678DD">public</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">async</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Task</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">MainAsync</span><span style="color: #ABB2BF">()</span></span>
 <span class="line"><span style="color: #ABB2BF">	{</span></span>
-<span class="line cbp-no-blur"><span style="color: #ABB2BF">		</span><span style="color: #C678DD">this</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">client</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">Log</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">+=</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">Log</span><span style="color: #ABB2BF">;</span></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">		</span><span style="color: #E5C07B">Client</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">Log</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">+=</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">Log</span><span style="color: #ABB2BF">;</span></span>
 <span class="line cbp-no-blur"></span>
 <span class="line cbp-no-blur"><span style="color: #ABB2BF">		</span><span style="color: #7F848E">// !!! A token-edet így ne tedd ki publikusan sehova !!!</span></span>
 <span class="line cbp-no-blur"><span style="color: #ABB2BF">		</span><span style="color: #C678DD">string</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">token</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">&quot;A.BOTOD.TOKENE.AMIT.KIMÁSOLTÁL&quot;</span><span style="color: #ABB2BF">;</span></span>
 <span class="line cbp-no-blur"></span>
-<span class="line cbp-no-blur"><span style="color: #ABB2BF">		</span><span style="color: #C678DD">await</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">this</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">client</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">LoginAsync</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">TokenType</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">Bot</span><span style="color: #ABB2BF">, </span><span style="color: #E06C75">token</span><span style="color: #ABB2BF">);</span></span>
-<span class="line cbp-no-blur"><span style="color: #ABB2BF">		</span><span style="color: #C678DD">await</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">this</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">client</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">StartAsync</span><span style="color: #ABB2BF">();</span></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">		</span><span style="color: #C678DD">await</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Client</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">LoginAsync</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">TokenType</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">Bot</span><span style="color: #ABB2BF">, </span><span style="color: #E06C75">token</span><span style="color: #ABB2BF">);</span></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">		</span><span style="color: #C678DD">await</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Client</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">StartAsync</span><span style="color: #ABB2BF">();</span></span>
 <span class="line cbp-no-blur"></span>
 <span class="line cbp-no-blur"><span style="color: #ABB2BF">		</span><span style="color: #C678DD">await</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Task</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">Delay</span><span style="color: #ABB2BF">(</span><span style="color: #56B6C2">-</span><span style="color: #D19A66">1</span><span style="color: #ABB2BF">);</span></span>
 <span class="line"><span style="color: #ABB2BF">	}</span></span>
@@ -190,7 +545,7 @@ public class DNetTutorial
 
 
 
-<div class="wp-block-kevinbatdorf-code-block-pro" style="font-size:.875rem;line-height:1.25rem"><span style="display:block;padding:16px 0 0 16px;margin-bottom:-1px;width:100%;text-align:left;background-color:#282c34"><svg xmlns="http://www.w3.org/2000/svg" width="54" height="14" viewBox="0 0 54 14"><g fill="none" fill-rule="evenodd" transform="translate(1 1)"><circle cx="6" cy="6" r="6" fill="#FF5F56" stroke="#E0443E" stroke-width=".5"></circle><circle cx="26" cy="6" r="6" fill="#FFBD2E" stroke="#DEA123" stroke-width=".5"></circle><circle cx="46" cy="6" r="6" fill="#27C93F" stroke="#1AAB29" stroke-width=".5"></circle></g></svg></span><span role="button" tabindex="0" data-code="namespace DNetTutorial;
+<div class="wp-block-kevinbatdorf-code-block-pro" style="font-size:.875rem;line-height:1.25rem"><span role="button" tabindex="0" data-code="namespace DNetTutorial;
 
 class Program
 {
@@ -224,7 +579,8 @@ class Program
 		
 		<dc:creator><![CDATA[m-attila]]></dc:creator>
 		<pubDate>Wed, 07 Dec 2022 07:14:25 +0000</pubDate>
-				<guid isPermaLink="false">https://14a-ma.github.io/?p=5</guid>
+				<category><![CDATA[Discord.NET]]></category>
+		<guid isPermaLink="false">https://14a-ma.github.io/?p=5</guid>
 
 					<description><![CDATA[Első és legfontosabb lépés, hogy legyen egy létező Botunk, amibe aztán észt programozhatunk. Ehhez mindössze el kell látogatnunk a https://discord.dev/ oldalra, ahol bejelentkezés után lehetőségünk lesz létrehozni egy új Application-t. Egy név megadása után létre is jön az applikáció, azonban Bot még nem. A Bot menüpontra kell menni, ahol az Add Bot gombra rányomva lesz [&#8230;]]]></description>
 										<content:encoded><![CDATA[
@@ -236,7 +592,7 @@ class Program
 
 
 
-<figure class="wp-block-image size-full"><img decoding="async" width="1920" height="1080" src="https://14a-ma.github.io/wp-content/uploads/2022/12/image.png" alt="" class="wp-image-21"/></figure>
+<figure class="wp-block-image size-full"><img decoding="async" loading="lazy" width="1920" height="1080" src="https://14a-ma.github.io/wp-content/uploads/2022/12/image.png" alt="" class="wp-image-21"/></figure>
 
 
 

@@ -132,7 +132,7 @@ img.emoji {
 
 
 <div class="wp-block-kevinbatdorf-code-block-pro" style="font-size:.875rem;line-height:1.25rem">
-<span style="display:block;padding:16px 0 0 16px;margin-bottom:-1px;width:100%;text-align:left;background-color:#282c34"><svg xmlns="http://www.w3.org/2000/svg" width="54" height="14" viewbox="0 0 54 14"><g fill="none" fill-rule="evenodd" transform="translate(1 1)"><circle cx="6" cy="6" r="6" fill="#FF5F56" stroke="#E0443E" stroke-width=".5"></circle><circle cx="26" cy="6" r="6" fill="#FFBD2E" stroke="#DEA123" stroke-width=".5"></circle><circle cx="46" cy="6" r="6" fill="#27C93F" stroke="#1AAB29" stroke-width=".5"></circle></g></svg></span><span role="button" tabindex="0" data-code="using Discord;
+<span role="button" tabindex="0" data-code="using Discord;
 using Discord.WebSocket;
 
 namespace DNetTutorial;
@@ -140,11 +140,11 @@ namespace DNetTutorial;
 public class DNetTutorial
 {
 	// A kliens, ami a Discord API-val kommunikál
-	private readonly DiscordSocketClient client;
+	public DiscordSocketClient Client { get; }
 
 	public DNetTutorial()
 	{
-		this.client = new DiscordSocketClient();
+		Client = new();
 	}
 
 	// Innen indul a bot.
@@ -156,9 +156,9 @@ public class DNetTutorial
 
 	// Log metódus kifejezetten a Discord.NET-hez.
 	// Minden fontosabb történést fog logolni formázva. 
-	private Task Log(LogMessage msg)
+	private Task Log(LogMessage message)
 	{
-		Console.WriteLine(msg.ToString());
+		Console.WriteLine(message.ToString());
 		return Task.CompletedTask;
 	}
 }" style="color:#abb2bf;display:none" aria-label="Copy" class="code-block-pro-copy-button"><svg xmlns="http://www.w3.org/2000/svg" style="width:24px;height:24px" fill="none" viewbox="0 0 24 24" stroke="currentColor" stroke-width="2"><path class="with-check" stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path><path class="without-check" stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path></svg></span><pre class="shiki" style="background-color: #282c34"><code><span class="line"><span style="color: #C678DD">using</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Discord</span><span style="color: #ABB2BF">;</span></span>
@@ -169,11 +169,11 @@ public class DNetTutorial
 <span class="line"><span style="color: #C678DD">public</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">class</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">DNetTutorial</span></span>
 <span class="line"><span style="color: #ABB2BF">{</span></span>
 <span class="line"><span style="color: #ABB2BF">	</span><span style="color: #7F848E">// A kliens, ami a Discord API-val kommunikál</span></span>
-<span class="line"><span style="color: #ABB2BF">	</span><span style="color: #C678DD">private</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">readonly</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">DiscordSocketClient</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">client</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #ABB2BF">	</span><span style="color: #C678DD">public</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">DiscordSocketClient</span><span style="color: #ABB2BF"> Client { </span><span style="color: #C678DD">get</span><span style="color: #ABB2BF">; }</span></span>
 <span class="line"></span>
 <span class="line"><span style="color: #ABB2BF">	</span><span style="color: #C678DD">public</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">DNetTutorial</span><span style="color: #ABB2BF">()</span></span>
 <span class="line"><span style="color: #ABB2BF">	{</span></span>
-<span class="line"><span style="color: #ABB2BF">		</span><span style="color: #C678DD">this</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">client</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">DiscordSocketClient</span><span style="color: #ABB2BF">();</span></span>
+<span class="line"><span style="color: #ABB2BF">		</span><span style="color: #E06C75">Client</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">new</span><span style="color: #ABB2BF">();</span></span>
 <span class="line"><span style="color: #ABB2BF">	}</span></span>
 <span class="line"></span>
 <span class="line"><span style="color: #ABB2BF">	</span><span style="color: #7F848E">// Innen indul a bot.</span></span>
@@ -185,9 +185,9 @@ public class DNetTutorial
 <span class="line"></span>
 <span class="line"><span style="color: #ABB2BF">	</span><span style="color: #7F848E">// Log metódus kifejezetten a Discord.NET-hez.</span></span>
 <span class="line"><span style="color: #ABB2BF">	</span><span style="color: #7F848E">// Minden fontosabb történést fog logolni formázva. </span></span>
-<span class="line"><span style="color: #ABB2BF">	</span><span style="color: #C678DD">private</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Task</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">Log</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">LogMessage</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">msg</span><span style="color: #ABB2BF">)</span></span>
+<span class="line"><span style="color: #ABB2BF">	</span><span style="color: #C678DD">private</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Task</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">Log</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">LogMessage</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">message</span><span style="color: #ABB2BF">)</span></span>
 <span class="line"><span style="color: #ABB2BF">	{</span></span>
-<span class="line"><span style="color: #ABB2BF">		</span><span style="color: #E5C07B">Console</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">WriteLine</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">msg</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">ToString</span><span style="color: #ABB2BF">());</span></span>
+<span class="line"><span style="color: #ABB2BF">		</span><span style="color: #E5C07B">Console</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">WriteLine</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">message</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">ToString</span><span style="color: #ABB2BF">());</span></span>
 <span class="line"><span style="color: #ABB2BF">		</span><span style="color: #C678DD">return</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Task</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">CompletedTask</span><span style="color: #ABB2BF">;</span></span>
 <span class="line"><span style="color: #ABB2BF">	}</span></span>
 <span class="line"><span style="color: #ABB2BF">}</span></span></code></pre>
@@ -200,29 +200,29 @@ public class DNetTutorial
 
 
 <div class="wp-block-kevinbatdorf-code-block-pro cbp-blur-enabled cbp-unblur-on-hover" style="font-size:.875rem;line-height:1.25rem">
-<span style="display:block;padding:16px 0 0 16px;margin-bottom:-1px;width:100%;text-align:left;background-color:#282c34"><svg xmlns="http://www.w3.org/2000/svg" width="54" height="14" viewbox="0 0 54 14"><g fill="none" fill-rule="evenodd" transform="translate(1 1)"><circle cx="6" cy="6" r="6" fill="#FF5F56" stroke="#E0443E" stroke-width=".5"></circle><circle cx="26" cy="6" r="6" fill="#FFBD2E" stroke="#DEA123" stroke-width=".5"></circle><circle cx="46" cy="6" r="6" fill="#27C93F" stroke="#1AAB29" stroke-width=".5"></circle></g></svg></span><span role="button" tabindex="0" data-code="using Discord;
+<span role="button" tabindex="0" data-code="using Discord;
 using Discord.WebSocket;
 
 namespace DNetTutorial;
 
 public class DNetTutorial
 {
-	private readonly DiscordSocketClient client;
+	public DiscordSocketClient Client { get; }
 
 	public DNetTutorial()
 	{
-		this.client = new DiscordSocketClient();
+		Client = new();
 	}
 
 	public async Task MainAsync()
 	{
-		this.client.Log += Log;
+		Client.Log += Log;
 
 		// !!! A token-edet így ne tedd ki publikusan sehova !!!
 		string token = &quot;A.BOTOD.TOKENE.AMIT.KIMÁSOLTÁL&quot;;
 
-		await this.client.LoginAsync(TokenType.Bot, token);
-		await this.client.StartAsync();
+		await Client.LoginAsync(TokenType.Bot, token);
+		await Client.StartAsync();
 
 		await Task.Delay(-1);
 	}
@@ -240,22 +240,22 @@ public class DNetTutorial
 <span class="line"></span>
 <span class="line"><span style="color: #C678DD">public</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">class</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">DNetTutorial</span></span>
 <span class="line"><span style="color: #ABB2BF">{</span></span>
-<span class="line"><span style="color: #ABB2BF">	</span><span style="color: #C678DD">private</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">readonly</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">DiscordSocketClient</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">client</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #ABB2BF">	</span><span style="color: #C678DD">public</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">DiscordSocketClient</span><span style="color: #ABB2BF"> Client { </span><span style="color: #C678DD">get</span><span style="color: #ABB2BF">; }</span></span>
 <span class="line"></span>
 <span class="line"><span style="color: #ABB2BF">	</span><span style="color: #C678DD">public</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">DNetTutorial</span><span style="color: #ABB2BF">()</span></span>
 <span class="line"><span style="color: #ABB2BF">	{</span></span>
-<span class="line"><span style="color: #ABB2BF">		</span><span style="color: #C678DD">this</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">client</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">DiscordSocketClient</span><span style="color: #ABB2BF">();</span></span>
+<span class="line"><span style="color: #ABB2BF">		</span><span style="color: #E06C75">Client</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">new</span><span style="color: #ABB2BF">();</span></span>
 <span class="line"><span style="color: #ABB2BF">	}</span></span>
 <span class="line"></span>
 <span class="line"><span style="color: #ABB2BF">	</span><span style="color: #C678DD">public</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">async</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Task</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">MainAsync</span><span style="color: #ABB2BF">()</span></span>
 <span class="line"><span style="color: #ABB2BF">	{</span></span>
-<span class="line cbp-no-blur"><span style="color: #ABB2BF">		</span><span style="color: #C678DD">this</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">client</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">Log</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">+=</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">Log</span><span style="color: #ABB2BF">;</span></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">		</span><span style="color: #E5C07B">Client</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">Log</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">+=</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">Log</span><span style="color: #ABB2BF">;</span></span>
 <span class="line cbp-no-blur"></span>
 <span class="line cbp-no-blur"><span style="color: #ABB2BF">		</span><span style="color: #7F848E">// !!! A token-edet így ne tedd ki publikusan sehova !!!</span></span>
 <span class="line cbp-no-blur"><span style="color: #ABB2BF">		</span><span style="color: #C678DD">string</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">token</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">&quot;A.BOTOD.TOKENE.AMIT.KIMÁSOLTÁL&quot;</span><span style="color: #ABB2BF">;</span></span>
 <span class="line cbp-no-blur"></span>
-<span class="line cbp-no-blur"><span style="color: #ABB2BF">		</span><span style="color: #C678DD">await</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">this</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">client</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">LoginAsync</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">TokenType</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">Bot</span><span style="color: #ABB2BF">, </span><span style="color: #E06C75">token</span><span style="color: #ABB2BF">);</span></span>
-<span class="line cbp-no-blur"><span style="color: #ABB2BF">		</span><span style="color: #C678DD">await</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">this</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">client</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">StartAsync</span><span style="color: #ABB2BF">();</span></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">		</span><span style="color: #C678DD">await</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Client</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">LoginAsync</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">TokenType</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">Bot</span><span style="color: #ABB2BF">, </span><span style="color: #E06C75">token</span><span style="color: #ABB2BF">);</span></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">		</span><span style="color: #C678DD">await</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Client</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">StartAsync</span><span style="color: #ABB2BF">();</span></span>
 <span class="line cbp-no-blur"></span>
 <span class="line cbp-no-blur"><span style="color: #ABB2BF">		</span><span style="color: #C678DD">await</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Task</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">Delay</span><span style="color: #ABB2BF">(</span><span style="color: #56B6C2">-</span><span style="color: #D19A66">1</span><span style="color: #ABB2BF">);</span></span>
 <span class="line"><span style="color: #ABB2BF">	}</span></span>
@@ -276,7 +276,7 @@ public class DNetTutorial
 
 
 <div class="wp-block-kevinbatdorf-code-block-pro" style="font-size:.875rem;line-height:1.25rem">
-<span style="display:block;padding:16px 0 0 16px;margin-bottom:-1px;width:100%;text-align:left;background-color:#282c34"><svg xmlns="http://www.w3.org/2000/svg" width="54" height="14" viewbox="0 0 54 14"><g fill="none" fill-rule="evenodd" transform="translate(1 1)"><circle cx="6" cy="6" r="6" fill="#FF5F56" stroke="#E0443E" stroke-width=".5"></circle><circle cx="26" cy="6" r="6" fill="#FFBD2E" stroke="#DEA123" stroke-width=".5"></circle><circle cx="46" cy="6" r="6" fill="#27C93F" stroke="#1AAB29" stroke-width=".5"></circle></g></svg></span><span role="button" tabindex="0" data-code="namespace DNetTutorial;
+<span role="button" tabindex="0" data-code="namespace DNetTutorial;
 
 class Program
 {
@@ -313,7 +313,7 @@ class Program
 
 <div class="wp-block-post-author has-small-font-size"><div class="wp-block-post-author__content"><p class="wp-block-post-author__name">m-attila</p></div></div>
 
-<div class="taxonomy-category wp-block-post-terms has-small-font-size"><a href="https://14a-ma.github.io/category/egyeb/" rel="tag">Egyéb kategória</a></div>
+<div class="taxonomy-category wp-block-post-terms has-small-font-size"><a href="https://14a-ma.github.io/category/discord-net/" rel="tag">Discord.NET</a></div>
 
 </div>
 
@@ -332,18 +332,15 @@ class Program
 
 <footer class="wp-block-template-part">
 <div class="is-layout-constrained wp-block-group" style="padding-top:var(--wp--custom--spacing--large, 8rem)">
-
-					<div class="is-layout-constrained wp-block-group alignfull">
-					<div class="is-content-justification-space-between is-layout-flex wp-container-11 wp-block-group alignwide" style="padding-top:4rem;padding-bottom:4rem">
+<div class="is-layout-constrained wp-block-group alignfull">
+<div class="is-content-justification-space-between is-layout-flex wp-container-11 wp-block-group alignwide" style="padding-top:4rem;padding-bottom:4rem">
 <p class="wp-block-site-title"><a href="https://14a-ma.github.io" target="_self" rel="home">Discord.NET</a></p>
 
-					
-					<p class="has-text-align-right">Proudly powered by <a href="https://wordpress.org/" rel="nofollow">WordPress</a></p>
-					</div>
-					</div>
-					
-</div>
 
+<p class="has-text-align-right">Proudly unpowered by <a rel="nofollow" href="https://wordpress.org/">WordPress</a> 🤮</p>
+</div>
+</div>
+</div>
 </footer>
 </div>
 

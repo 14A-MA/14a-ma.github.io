@@ -4,9 +4,10 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="max-image-preview:large">
-<title>Discord Bot létrehozása &#8211; Discord.NET</title>
+<title>Interaction parancsok &#8211; Discord.NET</title>
 <link rel="alternate" type="application/rss+xml" title="Discord.NET &raquo; Feed" href="https://14a-ma.github.io/feed/">
 <link rel="alternate" type="application/rss+xml" title="Discord.NET &raquo; Comments Feed" href="https://14a-ma.github.io/comments/feed/">
+<link rel="alternate" type="application/rss+xml" title="Discord.NET &raquo; Interaction parancsok Comments Feed" href="https://14a-ma.github.io/2022/12/08/interaction-parancsok/feed/">
 <script>
 window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/14a-ma.github.io\/wp-includes\/js\/wp-emoji-release.min.js?ver=6.1.1"}};
 /*! This file is auto-generated */
@@ -39,6 +40,7 @@ img.emoji {
 .wp-block-separator.has-css-opacity{opacity:.4}.wp-block-separator{border:none;border-bottom:2px solid;margin-left:auto;margin-right:auto}.wp-block-separator.has-alpha-channel-opacity{opacity:1}.wp-block-separator:not(.is-style-wide):not(.is-style-dots){width:100px}.wp-block-separator.has-background:not(.is-style-dots){border-bottom:none;height:1px}.wp-block-separator.has-background:not(.is-style-wide):not(.is-style-dots){height:2px}</style>
 <style id="wp-block-spacer-inline-css">.wp-block-spacer{clear:both}</style>
 <style id="wp-block-paragraph-inline-css">.is-small-text{font-size:.875em}.is-regular-text{font-size:1em}.is-large-text{font-size:2.25em}.is-larger-text{font-size:3em}.has-drop-cap:not(:focus):first-letter{float:left;font-size:8.4em;line-height:.68;font-weight:100;margin:.05em .1em 0 0;text-transform:uppercase;font-style:normal}p.has-drop-cap.has-background{overflow:hidden}p.has-background{padding:1.25em 2.375em}:where(p.has-text-color:not(.has-link-color)) a{color:inherit}</style>
+<style id="kevinbatdorf-code-block-pro-style-inline-css">.wp-block-kevinbatdorf-code-block-pro{box-sizing:border-box!important;direction:ltr!important;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;position:relative!important}.wp-block-kevinbatdorf-code-block-pro *{box-sizing:border-box!important}.wp-block-kevinbatdorf-code-block-pro pre,.wp-block-kevinbatdorf-code-block-pro pre *{font-size:inherit!important;line-height:inherit!important}.wp-block-kevinbatdorf-code-block-pro:not(.code-block-pro-editor) pre{--tw-shadow:0 0 #0000!important;--tw-shadow-colored:0 0 #0000!important;background-image:none!important;border:0!important;border-radius:0!important;border-style:none!important;border-width:0!important;box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)!important;color:inherit!important;font-family:inherit!important;margin:0!important;overflow:auto!important;overflow-wrap:normal!important;padding:16px 0 16px 16px!important;text-align:left!important;white-space:pre!important}.wp-block-kevinbatdorf-code-block-pro.padding-disabled:not(.code-block-pro-editor) pre{padding:0!important}.wp-block-kevinbatdorf-code-block-pro.padding-bottom-disabled pre{padding-bottom:0!important}.wp-block-kevinbatdorf-code-block-pro:not(.code-block-pro-editor) pre code{--tw-shadow:0 0 #0000!important;--tw-shadow-colored:0 0 #0000!important;background:none!important;background-color:transparent!important;border:0!important;border-radius:0!important;border-style:none!important;border-width:0!important;box-shadow:var(--tw-ring-offset-shadow,0 0 #0000),var(--tw-ring-shadow,0 0 #0000),var(--tw-shadow)!important;color:inherit!important;display:block!important;font-family:inherit!important;margin:0!important;overflow-wrap:normal!important;padding:0!important;text-align:left!important;white-space:pre!important;width:100%!important}.wp-block-kevinbatdorf-code-block-pro:not(.code-block-pro-editor) pre code .line{display:inline-block!important;width:100%!important}.wp-block-kevinbatdorf-code-block-pro.cbp-has-line-numbers:not(.code-block-pro-editor) pre code{counter-increment:step calc(var(--cbp-line-number-start, 1) - 1)!important;counter-reset:step!important}.wp-block-kevinbatdorf-code-block-pro pre code .line{position:relative!important}.wp-block-kevinbatdorf-code-block-pro:not(.code-block-pro-editor) pre code .line:before{content:""!important;display:inline-block!important}.wp-block-kevinbatdorf-code-block-pro.cbp-has-line-numbers:not(.code-block-pro-editor) pre code .line:not(.cbp-line-number-disabled):before{color:var(--cbp-line-number-color,#999)!important;content:counter(step)!important;counter-increment:step!important;display:inline-block!important;margin-right:12px!important;opacity:.5!important;text-align:right!important;transition-duration:.5s!important;transition-property:opacity!important;transition-timing-function:cubic-bezier(.4,0,.2,1)!important;-webkit-user-select:none!important;-moz-user-select:none!important;user-select:none!important;width:var(--cbp-line-number-width,auto)!important}.wp-block-kevinbatdorf-code-block-pro pre .line.cbp-line-highlight .cbp-line-highlighter{background:var(--cbp-line-highlight-color,rgb(14 165 233/.2))!important;height:100%!important;left:-16px!important;min-width:calc(var(--cbp-block-width, 100%))!important;position:absolute!important;top:0!important;width:100%!important}.wp-block-kevinbatdorf-code-block-pro.padding-disabled pre .line.cbp-line-highlight:after{left:0!important;width:100%!important}.wp-block-kevinbatdorf-code-block-pro.cbp-blur-enabled pre .line:not(.cbp-no-blur){filter:blur(1px)!important;opacity:.4!important;transition-duration:.2s!important;transition-property:all!important;transition-timing-function:cubic-bezier(.4,0,.2,1)!important}.wp-block-kevinbatdorf-code-block-pro.cbp-blur-enabled.cbp-unblur-on-hover:hover pre .line:not(.cbp-no-blur){--tw-blur:blur(0)!important;filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)!important;opacity:1!important}.wp-block-kevinbatdorf-code-block-pro:not(.code-block-pro-editor) pre *{font-family:inherit!important}.code-block-pro-copy-button{background:none!important;background-color:transparent!important;border:0!important;border-style:none!important;border-width:0!important;cursor:pointer!important;left:auto!important;line-height:1!important;opacity:.1!important;padding:6px!important;position:absolute!important;right:0!important;top:0!important;transition-duration:.2s!important;transition-property:opacity!important;transition-timing-function:cubic-bezier(.4,0,.2,1)!important;z-index:10!important}.code-block-pro-copy-button:focus{opacity:.4!important}.wp-block-kevinbatdorf-code-block-pro.padding-disabled .code-block-pro-copy-button{padding:0!important}.wp-block-kevinbatdorf-code-block-pro:hover .code-block-pro-copy-button{opacity:.5!important}.wp-block-kevinbatdorf-code-block-pro .code-block-pro-copy-button:hover{opacity:.9!important}.code-block-pro-copy-button .without-check{display:block!important}.code-block-pro-copy-button .with-check,.code-block-pro-copy-button.copying .without-check{display:none!important}.code-block-pro-copy-button.copying .with-check{display:block!important}.cbp-footer-link:hover{text-decoration-line:underline!important}</style>
 <style id="wp-block-image-inline-css">.wp-block-image img{height:auto;max-width:100%;vertical-align:bottom}.wp-block-image.has-custom-border img,.wp-block-image img{box-sizing:border-box}.wp-block-image.aligncenter{text-align:center}.wp-block-image.alignfull img,.wp-block-image.alignwide img{height:auto;width:100%}.wp-block-image.aligncenter,.wp-block-image .aligncenter,.wp-block-image.alignleft,.wp-block-image .alignleft,.wp-block-image.alignright,.wp-block-image .alignright{display:table}.wp-block-image.aligncenter>figcaption,.wp-block-image .aligncenter>figcaption,.wp-block-image.alignleft>figcaption,.wp-block-image .alignleft>figcaption,.wp-block-image.alignright>figcaption,.wp-block-image .alignright>figcaption{display:table-caption;caption-side:bottom}.wp-block-image .alignleft{float:left;margin:.5em 1em .5em 0}.wp-block-image .alignright{float:right;margin:.5em 0 .5em 1em}.wp-block-image .aligncenter{margin-left:auto;margin-right:auto}.wp-block-image figcaption{margin-top:.5em;margin-bottom:1em}.wp-block-image.is-style-circle-mask img,.wp-block-image.is-style-rounded img,.wp-block-image .is-style-rounded img{border-radius:9999px}@supports ((-webkit-mask-image:none) or (mask-image:none)) or (-webkit-mask-image:none){.wp-block-image.is-style-circle-mask img{-webkit-mask-image:url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="50"/></svg>');mask-image:url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="50"/></svg>');mask-mode:alpha;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-size:contain;mask-size:contain;-webkit-mask-position:center;mask-position:center;border-radius:0}}.wp-block-image :where(.has-border-color){border-style:solid}.wp-block-image :where([style*=border-top-color]){border-top-style:solid}.wp-block-image :where([style*=border-right-color]){border-right-style:solid}.wp-block-image :where([style*=border-bottom-color]){border-bottom-style:solid}.wp-block-image :where([style*=border-left-color]){border-left-style:solid}.wp-block-image :where([style*=border-width]){border-style:solid}.wp-block-image :where([style*=border-top-width]){border-top-style:solid}.wp-block-image :where([style*=border-right-width]){border-right-style:solid}.wp-block-image :where([style*=border-bottom-width]){border-bottom-style:solid}.wp-block-image :where([style*=border-left-width]){border-left-style:solid}.wp-block-image figure{margin:0}
 .wp-block-image figcaption{color:#555;font-size:13px;text-align:center}.is-dark-theme .wp-block-image figcaption{color:hsla(0,0%,100%,.65)}.wp-block-image{margin:0 0 1em}</style>
 <style id="wp-block-post-date-inline-css">.wp-block-post-date{box-sizing:border-box}</style>
@@ -54,18 +56,20 @@ img.emoji {
 <link rel="stylesheet" id="twentytwentytwo-style-css" href="https://14a-ma.github.io/wp-content/themes/twentytwentytwo/style.css?ver=1.2" media="all">
 <script src="https://14a-ma.github.io/wp-includes/blocks/navigation/view.min.js?ver=c24330f635f5cb9d5e0e" id="wp-block-navigation-view-js"></script>
 <script src="https://14a-ma.github.io/wp-includes/blocks/navigation/view-modal.min.js?ver=45f05135277abf0b0408" id="wp-block-navigation-view-2-js"></script>
+<script src="https://14a-ma.github.io/wp-content/plugins/code-block-pro/build/front/front.js?ver=b2936d76aba61823cc19" id="kevinbatdorf-code-block-pro-view-script-js"></script>
+<script id="kevinbatdorf-code-block-pro-view-script-js-after">window.codeBlockPro = {"pluginUrl":"https:\/\/14a-ma.github.io\/wp-content\/plugins\/code-block-pro\/"};</script>
 <link rel="https://api.w.org/" href="https://14a-ma.github.io/wp-json/">
-<link rel="alternate" type="application/json" href="https://14a-ma.github.io/wp-json/wp/v2/posts/5">
+<link rel="alternate" type="application/json" href="https://14a-ma.github.io/wp-json/wp/v2/posts/39">
 <link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://14a-ma.github.io/xmlrpc.php?rsd">
 <link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://14a-ma.github.io/wp-includes/wlwmanifest.xml">
 <meta name="generator" content="WordPress 6.1.1">
-<link rel="canonical" href="https://14a-ma.github.io/2022/12/07/discord-bot-letrehozasa/">
-<link rel="shortlink" href="https://14a-ma.github.io/?p=5">
-<link rel="alternate" type="application/json+oembed" href="https://14a-ma.github.io/wp-json/oembed/1.0/embed?url=https%3A%2F%2F14a-ma.github.io%2F2022%2F12%2F07%2Fdiscord-bot-letrehozasa%2F">
-<link rel="alternate" type="text/xml+oembed" href="https://14a-ma.github.io/wp-json/oembed/1.0/embed?url=https%3A%2F%2F14a-ma.github.io%2F2022%2F12%2F07%2Fdiscord-bot-letrehozasa%2F&#038;format=xml">
+<link rel="canonical" href="https://14a-ma.github.io/2022/12/08/interaction-parancsok/">
+<link rel="shortlink" href="https://14a-ma.github.io/?p=39">
+<link rel="alternate" type="application/json+oembed" href="https://14a-ma.github.io/wp-json/oembed/1.0/embed?url=https%3A%2F%2F14a-ma.github.io%2F2022%2F12%2F08%2Finteraction-parancsok%2F">
+<link rel="alternate" type="text/xml+oembed" href="https://14a-ma.github.io/wp-json/oembed/1.0/embed?url=https%3A%2F%2F14a-ma.github.io%2F2022%2F12%2F08%2Finteraction-parancsok%2F&#038;format=xml">
 </head>
 
-<body class="post-template-default single single-post postid-5 single-format-standard wp-embed-responsive">
+<body class="post-template-default single single-post postid-39 single-format-standard wp-embed-responsive">
 <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-dark-grayscale"><fecolormatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "></fecolormatrix><fecomponenttransfer color-interpolation-filters="sRGB"><fefuncr type="table" tablevalues="0 0.49803921568627"></fefuncr><fefuncg type="table" tablevalues="0 0.49803921568627"></fefuncg><fefuncb type="table" tablevalues="0 0.49803921568627"></fefuncb><fefunca type="table" tablevalues="1 1"></fefunca></fecomponenttransfer><fecomposite in2="SourceGraphic" operator="in"></fecomposite></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-grayscale"><fecolormatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "></fecolormatrix><fecomponenttransfer color-interpolation-filters="sRGB"><fefuncr type="table" tablevalues="0 1"></fefuncr><fefuncg type="table" tablevalues="0 1"></fefuncg><fefuncb type="table" tablevalues="0 1"></fefuncb><fefunca type="table" tablevalues="1 1"></fefunca></fecomponenttransfer><fecomposite in2="SourceGraphic" operator="in"></fecomposite></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-purple-yellow"><fecolormatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "></fecolormatrix><fecomponenttransfer color-interpolation-filters="sRGB"><fefuncr type="table" tablevalues="0.54901960784314 0.98823529411765"></fefuncr><fefuncg type="table" tablevalues="0 1"></fefuncg><fefuncb type="table" tablevalues="0.71764705882353 0.25490196078431"></fefuncb><fefunca type="table" tablevalues="1 1"></fefunca></fecomponenttransfer><fecomposite in2="SourceGraphic" operator="in"></fecomposite></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-blue-red"><fecolormatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "></fecolormatrix><fecomponenttransfer color-interpolation-filters="sRGB"><fefuncr type="table" tablevalues="0 1"></fefuncr><fefuncg type="table" tablevalues="0 0.27843137254902"></fefuncg><fefuncb type="table" tablevalues="0.5921568627451 0.27843137254902"></fefuncb><fefunca type="table" tablevalues="1 1"></fefunca></fecomponenttransfer><fecomposite in2="SourceGraphic" operator="in"></fecomposite></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-midnight"><fecolormatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "></fecolormatrix><fecomponenttransfer color-interpolation-filters="sRGB"><fefuncr type="table" tablevalues="0 0"></fefuncr><fefuncg type="table" tablevalues="0 0.64705882352941"></fefuncg><fefuncb type="table" tablevalues="0 1"></fefuncb><fefunca type="table" tablevalues="1 1"></fefunca></fecomponenttransfer><fecomposite in2="SourceGraphic" operator="in"></fecomposite></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-magenta-yellow"><fecolormatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "></fecolormatrix><fecomponenttransfer color-interpolation-filters="sRGB"><fefuncr type="table" tablevalues="0.78039215686275 1"></fefuncr><fefuncg type="table" tablevalues="0 0.94901960784314"></fefuncg><fefuncb type="table" tablevalues="0.35294117647059 0.47058823529412"></fefuncb><fefunca type="table" tablevalues="1 1"></fefunca></fecomponenttransfer><fecomposite in2="SourceGraphic" operator="in"></fecomposite></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-purple-green"><fecolormatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "></fecolormatrix><fecomponenttransfer color-interpolation-filters="sRGB"><fefuncr type="table" tablevalues="0.65098039215686 0.40392156862745"></fefuncr><fefuncg type="table" tablevalues="0 1"></fefuncg><fefuncb type="table" tablevalues="0.44705882352941 0.4"></fefuncb><fefunca type="table" tablevalues="1 1"></fefunca></fecomponenttransfer><fecomposite in2="SourceGraphic" operator="in"></fecomposite></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-blue-orange"><fecolormatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "></fecolormatrix><fecomponenttransfer color-interpolation-filters="sRGB"><fefuncr type="table" tablevalues="0.098039215686275 1"></fefuncr><fefuncg type="table" tablevalues="0 0.66274509803922"></fefuncg><fefuncb type="table" tablevalues="0.84705882352941 0.41960784313725"></fefuncb><fefunca type="table" tablevalues="1 1"></fefunca></fecomponenttransfer><fecomposite in2="SourceGraphic" operator="in"></fecomposite></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-foreground-and-background"><fecolormatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "></fecolormatrix><fecomponenttransfer color-interpolation-filters="sRGB"><fefuncr type="table" tablevalues="0 1"></fefuncr><fefuncg type="table" tablevalues="0 1"></fefuncg><fefuncb type="table" tablevalues="0 1"></fefuncb><fefunca type="table" tablevalues="1 1"></fefunca></fecomponenttransfer><fecomposite in2="SourceGraphic" operator="in"></fecomposite></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-foreground-and-secondary"><fecolormatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "></fecolormatrix><fecomponenttransfer color-interpolation-filters="sRGB"><fefuncr type="table" tablevalues="0 1"></fefuncr><fefuncg type="table" tablevalues="0 0.88627450980392"></fefuncg><fefuncb type="table" tablevalues="0 0.78039215686275"></fefuncb><fefunca type="table" tablevalues="1 1"></fefunca></fecomponenttransfer><fecomposite in2="SourceGraphic" operator="in"></fecomposite></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-foreground-and-tertiary"><fecolormatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "></fecolormatrix><fecomponenttransfer color-interpolation-filters="sRGB"><fefuncr type="table" tablevalues="0 0.96470588235294"></fefuncr><fefuncg type="table" tablevalues="0 0.96470588235294"></fefuncg><fefuncb type="table" tablevalues="0 0.96470588235294"></fefuncb><fefunca type="table" tablevalues="1 1"></fefunca></fecomponenttransfer><fecomposite in2="SourceGraphic" operator="in"></fecomposite></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-primary-and-background"><fecolormatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "></fecolormatrix><fecomponenttransfer color-interpolation-filters="sRGB"><fefuncr type="table" tablevalues="0.10196078431373 1"></fefuncr><fefuncg type="table" tablevalues="0.27058823529412 1"></fefuncg><fefuncb type="table" tablevalues="0.28235294117647 1"></fefuncb><fefunca type="table" tablevalues="1 1"></fefunca></fecomponenttransfer><fecomposite in2="SourceGraphic" operator="in"></fecomposite></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-primary-and-secondary"><fecolormatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "></fecolormatrix><fecomponenttransfer color-interpolation-filters="sRGB"><fefuncr type="table" tablevalues="0.10196078431373 1"></fefuncr><fefuncg type="table" tablevalues="0.27058823529412 0.88627450980392"></fefuncg><fefuncb type="table" tablevalues="0.28235294117647 0.78039215686275"></fefuncb><fefunca type="table" tablevalues="1 1"></fefunca></fecomponenttransfer><fecomposite in2="SourceGraphic" operator="in"></fecomposite></filter></defs></svg><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 0 0" width="0" height="0" focusable="false" role="none" style="visibility: hidden; position: absolute; left: -9999px; overflow: hidden;"><defs><filter id="wp-duotone-primary-and-tertiary"><fecolormatrix color-interpolation-filters="sRGB" type="matrix" values=" .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 .299 .587 .114 0 0 "></fecolormatrix><fecomponenttransfer color-interpolation-filters="sRGB"><fefuncr type="table" tablevalues="0.10196078431373 0.96470588235294"></fefuncr><fefuncg type="table" tablevalues="0.27058823529412 0.96470588235294"></fefuncg><fefuncb type="table" tablevalues="0.28235294117647 0.96470588235294"></fefuncb><fefunca type="table" tablevalues="1 1"></fefunca></fecomponenttransfer><fecomposite in2="SourceGraphic" operator="in"></fecomposite></filter></defs></svg>
 <div class="wp-site-blocks">
 <header class="wp-block-template-part">
@@ -95,7 +99,7 @@ img.emoji {
 
 <main class="is-layout-flow wp-block-group">
 <div class="is-layout-constrained wp-block-group">
-<h1 style="margin-bottom:var(--wp--custom--spacing--medium, 6rem);" class="alignwide wp-block-post-title">Discord Bot létrehozása</h1>
+<h1 style="margin-bottom:var(--wp--custom--spacing--medium, 6rem);" class="alignwide wp-block-post-title">Interaction parancsok</h1>
 
 
 
@@ -109,39 +113,351 @@ img.emoji {
 
 
 <div class="is-layout-constrained entry-content wp-block-post-content">
-<p>Első és legfontosabb lépés, hogy legyen egy létező <strong>Bot</strong>unk, amibe aztán észt programozhatunk.</p>
+<p>A legegyértelműbb kommunikációs forma a <strong>parancsok</strong> használata. Erre a feladatra egy csodálatos <strong>keretrendszer</strong> áll rendelkezésünkre.</p>
 
 
 
-<p>Ehhez mindössze el kell látogatnunk a <a rel="noreferrer noopener" href="https://discord.dev/" target="_blank">https://discord.dev</a> oldalra, ahol bejelentkezés után lehetőségünk lesz létrehozni egy új <code>Application</code>-t. Egy név megadása után létre is jön az applikáció, azonban Bot még nem. A <code>Bot</code> menüpontra kell menni, ahol az <code>Add Bot</code> gombra rányomva lesz véglegesen létrehozva egy User az applikációnk számára, amivel a Discord-on belül interaktálhatunk a többi felhasználóval.</p>
+<p>Hozzunk is létre gyorsan egy mappát a parancsaiknak, abba pedig egy új <code>C#</code> fájlt. Próbálgatni a dolgokat én készítek egy <code>Test</code> parancsot. A <code>namespace</code>-t annyival módosítom, hogy kövesse a mappastruktúrát.</p>
 
 
 
-<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="1920" height="1080" src="https://14a-ma.github.io/wp-content/uploads/2022/12/image.png" alt="" class="wp-image-21"></figure>
+<div class="wp-block-kevinbatdorf-code-block-pro" style="font-size:.875rem;line-height:1.25rem">
+<span role="button" tabindex="0" data-code="using Discord.Interactions;
+
+namespace DNetTutorial.Commands;
+
+// Az InteractionModuleBase-ből örökölünk, hogy a Discord.Interactions-ben
+// lévő metódusokat használhassuk.
+public class Test : InteractionModuleBase
+{
+	[RequireOwner] // Hogy csak a tulajdonos használhassa
+	[SlashCommand(&quot;test&quot;, &quot;Teszt parancs&quot;)] // (név, leírás)
+	public async Task Run()
+	{
+		await RespondAsync(&quot;Hello World!&quot;);
+	}
+}
+" style="color:#abb2bf;display:none" aria-label="Copy" class="code-block-pro-copy-button"><svg xmlns="http://www.w3.org/2000/svg" style="width:24px;height:24px" fill="none" viewbox="0 0 24 24" stroke="currentColor" stroke-width="2"><path class="with-check" stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path><path class="without-check" stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path></svg></span><pre class="shiki" style="background-color: #282c34"><code><span class="line"><span style="color: #C678DD">using</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Discord</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">Interactions</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #C678DD">namespace</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">DNetTutorial</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">Commands</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #7F848E">// Az InteractionModuleBase-ből örökölünk, hogy a Discord.Interactions-ben</span></span>
+<span class="line"><span style="color: #7F848E">// lévő metódusokat használhassuk.</span></span>
+<span class="line"><span style="color: #C678DD">public</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">class</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Test</span><span style="color: #ABB2BF"> : </span><span style="color: #E5C07B">InteractionModuleBase</span></span>
+<span class="line"><span style="color: #ABB2BF">{</span></span>
+<span class="line"><span style="color: #ABB2BF">	[</span><span style="color: #E5C07B">RequireOwner</span><span style="color: #ABB2BF">] </span><span style="color: #7F848E">// Hogy csak a tulajdonos használhassa</span></span>
+<span class="line"><span style="color: #ABB2BF">	[</span><span style="color: #E5C07B">SlashCommand</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;test&quot;</span><span style="color: #ABB2BF">, </span><span style="color: #98C379">&quot;Teszt parancs&quot;</span><span style="color: #ABB2BF">)] </span><span style="color: #7F848E">// (név, leírás)</span></span>
+<span class="line"><span style="color: #ABB2BF">	</span><span style="color: #C678DD">public</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">async</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Task</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">Run</span><span style="color: #ABB2BF">()</span></span>
+<span class="line"><span style="color: #ABB2BF">	{</span></span>
+<span class="line"><span style="color: #ABB2BF">		</span><span style="color: #C678DD">await</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">RespondAsync</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;Hello World!&quot;</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #ABB2BF">	}</span></span>
+<span class="line"><span style="color: #ABB2BF">}</span></span>
+<span class="line"></span></code></pre>
+</div>
 
 
 
-<p>Ezen az oldalon sok hasznos beállítást találunk. Mindegyikhez van egy kis leírás, de a legfontosabbak a <code>Privileged Gateway Intents</code> részben találhatóak. Ezek bekapcsolásával a botunk több dologgal fog tudni foglalkozni, de ha több, mint 100 szerverre behívnák, akkor ezekhez engedélyt kell majd kérni. Tanuláshoz nyugodtan be lehet kapcsolni mindet.</p>
+<p>Ezzel egy nagyon egyszerű parancs létre is lett hozva. Most menjünk vissza a <code>kiinduló osztályunkhoz</code>, hogy elkészítsük a logikát, ami meg fogja hívni a megfelelő parancs metódusát.</p>
 
 
 
-<figure class="wp-block-image size-full"><img decoding="async" loading="lazy" width="1447" height="678" src="https://14a-ma.github.io/wp-content/uploads/2022/12/image-1.png" alt="" class="wp-image-22"></figure>
+<div class="wp-block-kevinbatdorf-code-block-pro cbp-blur-enabled cbp-unblur-on-hover" style="font-size:.875rem;line-height:1.25rem">
+<span role="button" tabindex="0" data-code="using Discord;
+using Discord.Interactions;
+using Discord.WebSocket;
+using Microsoft.Extensions.DependencyInjection; // NuGet-ről kell telepíteni
+
+namespace DNetTutorial;
+
+public class DNetTutorial
+{
+	private readonly IServiceProvider services;
+
+	public DiscordSocketClient Client { get; }
+	// A Discord Interactions API-val kommunikáló osztály
+	public InteractionService Interaction { get; }
+
+	public DNetTutorial()
+	{
+		Client = new();
+		Interaction = new(Client);
+
+		// Összegyűjtjük a szükséges osztályokat, hogy injektálva
+		// lehessenek. Ez azért hasznos, mert így nem kell mindenhol
+		// újra példányosítani az osztályokat. Az eltárolt értékek is
+		// megmaradnak. A parancsoknál is könnyedén elérhetőek lesznek.
+		this.services = new ServiceCollection()
+			.AddSingleton(Client)
+			.AddSingleton(Interaction)
+			.BuildServiceProvider();
+	}
+
+	public async Task MainAsync()
+	{
+		Client.Log += Log;
+
+		string token = &quot;A.TOKEN.AMIT.KIMÁSOLTÁL&quot;;
+
+		await Client.LoginAsync(TokenType.Bot, token);
+		await Client.StartAsync();
+
+		// Minden perjeles parancs használatánál lefut ez a metódus.
+		Client.SlashCommandExecuted += async (interaction) =&gt;
+		{
+			// Itt létrehozunk egy Context-et, amiben eltárol
+			// néhány hasznos információt, amit a parancsok 
+			// használnak/használhatnak.
+			SocketInteractionContext context = new(
+				Client, interaction);
+			// Majd kegyes egszerűséggel futtatjuk a parancsot.
+			await Interaction.ExecuteCommandAsync(
+				context, this.services);
+		};
+
+		// Ha a bot elindult, akkor ez a metódus fog lefutni.
+		Client.Ready += async () =&gt;
+		{
+			// Ez a metódus megkeresi az összes osztály a
+			// projektünkben, ami örökli a korábban a parancsnál
+			// használt ModuleBase osztályt.
+			await Interaction.AddModulesAsync(
+				typeof(DNetTutorial).Assembly, this.services);
+
+			// Az már ismert modulok segítségével regisztráljuk a
+			// létrehozott parancsokat egy általunk kiválasztott
+			// szerverre.
+			// A true azt jelenti, hogy törli azokat a parancsokat,
+			// amiket nem talál meg a modulok között.
+			await Interaction.RegisterCommandsToGuildAsync(
+				712287958274801695, true);
+		};
+
+		await Task.Delay(-1);
+	}
+
+	private Task Log(LogMessage message)
+	{
+		Console.WriteLine(message.ToString());
+		return Task.CompletedTask;
+	}
+}
+" style="color:#abb2bf;display:none" aria-label="Copy" class="code-block-pro-copy-button"><svg xmlns="http://www.w3.org/2000/svg" style="width:24px;height:24px" fill="none" viewbox="0 0 24 24" stroke="currentColor" stroke-width="2"><path class="with-check" stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path><path class="without-check" stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path></svg></span><pre class="shiki" style="background-color: #282c34"><code><span class="line"><span style="color: #C678DD">using</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Discord</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #C678DD">using</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Discord</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">Interactions</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #C678DD">using</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Discord</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">WebSocket</span><span style="color: #ABB2BF">;</span></span>
+<span class="line cbp-no-blur"><span style="color: #C678DD">using</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Microsoft</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">Extensions</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">DependencyInjection</span><span style="color: #ABB2BF">; </span><span style="color: #7F848E">// NuGet-ről kell telepíteni</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #C678DD">namespace</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">DNetTutorial</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #C678DD">public</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">class</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">DNetTutorial</span></span>
+<span class="line"><span style="color: #ABB2BF">{</span></span>
+<span class="line"><span style="color: #ABB2BF">	</span><span style="color: #C678DD">private</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">readonly</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">IServiceProvider</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">services</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #ABB2BF">	</span><span style="color: #C678DD">public</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">DiscordSocketClient</span><span style="color: #ABB2BF"> Client { </span><span style="color: #C678DD">get</span><span style="color: #ABB2BF">; }</span></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">	</span><span style="color: #7F848E">// A Discord Interactions API-val kommunikáló osztály</span></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">	</span><span style="color: #C678DD">public</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">InteractionService</span><span style="color: #ABB2BF"> Interaction { </span><span style="color: #C678DD">get</span><span style="color: #ABB2BF">; }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #ABB2BF">	</span><span style="color: #C678DD">public</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">DNetTutorial</span><span style="color: #ABB2BF">()</span></span>
+<span class="line"><span style="color: #ABB2BF">	{</span></span>
+<span class="line"><span style="color: #ABB2BF">		</span><span style="color: #E06C75">Client</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">new</span><span style="color: #ABB2BF">();</span></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">		</span><span style="color: #E06C75">Interaction</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">new</span><span style="color: #ABB2BF">(</span><span style="color: #E06C75">Client</span><span style="color: #ABB2BF">);</span></span>
+<span class="line cbp-no-blur"></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">		</span><span style="color: #7F848E">// Összegyűjtjük a szükséges osztályokat, hogy injektálva</span></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">		</span><span style="color: #7F848E">// lehessenek. Ez azért hasznos, mert így nem kell mindenhol</span></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">		</span><span style="color: #7F848E">// újra példányosítani az osztályokat. Az eltárolt értékek is</span></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">		</span><span style="color: #7F848E">// megmaradnak. A parancsoknál is könnyedén elérhetőek lesznek.</span></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">		</span><span style="color: #C678DD">this</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">services</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">new</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">ServiceCollection</span><span style="color: #ABB2BF">()</span></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">			.</span><span style="color: #61AFEF">AddSingleton</span><span style="color: #ABB2BF">(</span><span style="color: #E06C75">Client</span><span style="color: #ABB2BF">)</span></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">			.</span><span style="color: #61AFEF">AddSingleton</span><span style="color: #ABB2BF">(</span><span style="color: #E06C75">Interaction</span><span style="color: #ABB2BF">)</span></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">			.</span><span style="color: #61AFEF">BuildServiceProvider</span><span style="color: #ABB2BF">();</span></span>
+<span class="line"><span style="color: #ABB2BF">	}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #ABB2BF">	</span><span style="color: #C678DD">public</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">async</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Task</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">MainAsync</span><span style="color: #ABB2BF">()</span></span>
+<span class="line"><span style="color: #ABB2BF">	{</span></span>
+<span class="line"><span style="color: #ABB2BF">		</span><span style="color: #E5C07B">Client</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">Log</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">+=</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">Log</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #ABB2BF">		</span><span style="color: #C678DD">string</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">token</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">&quot;A.TOKEN.AMIT.KIMÁSOLTÁL&quot;</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #ABB2BF">		</span><span style="color: #C678DD">await</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Client</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">LoginAsync</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">TokenType</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">Bot</span><span style="color: #ABB2BF">, </span><span style="color: #E06C75">token</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #ABB2BF">		</span><span style="color: #C678DD">await</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Client</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">StartAsync</span><span style="color: #ABB2BF">();</span></span>
+<span class="line"></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">		</span><span style="color: #7F848E">// Minden perjeles parancs használatánál lefut ez a metódus.</span></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">		</span><span style="color: #E5C07B">Client</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">SlashCommandExecuted</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">+=</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">async</span><span style="color: #ABB2BF"> (</span><span style="color: #E5C07B">interaction</span><span style="color: #ABB2BF">) =&gt;</span></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">		{</span></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">			</span><span style="color: #7F848E">// Itt létrehozunk egy Context-et, amiben eltárol</span></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">			</span><span style="color: #7F848E">// néhány hasznos információt, amit a parancsok </span></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">			</span><span style="color: #7F848E">// használnak/használhatnak.</span></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">			</span><span style="color: #E5C07B">SocketInteractionContext</span><span style="color: #ABB2BF"> </span><span style="color: #E06C75">context</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">=</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">new</span><span style="color: #ABB2BF">(</span></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">				</span><span style="color: #E06C75">Client</span><span style="color: #ABB2BF">, </span><span style="color: #E06C75">interaction</span><span style="color: #ABB2BF">);</span></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">			</span><span style="color: #7F848E">// Majd kegyes egszerűséggel futtatjuk a parancsot.</span></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">			</span><span style="color: #C678DD">await</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Interaction</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">ExecuteCommandAsync</span><span style="color: #ABB2BF">(</span></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">				</span><span style="color: #E06C75">context</span><span style="color: #ABB2BF">, </span><span style="color: #C678DD">this</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">services</span><span style="color: #ABB2BF">);</span></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">		};</span></span>
+<span class="line cbp-no-blur"></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">		</span><span style="color: #7F848E">// Ha a bot elindult, akkor ez a metódus fog lefutni.</span></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">		</span><span style="color: #E5C07B">Client</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">Ready</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">+=</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">async</span><span style="color: #ABB2BF"> () =&gt;</span></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">		{</span></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">			</span><span style="color: #7F848E">// Ez a metódus megkeresi az összes osztály a</span></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">			</span><span style="color: #7F848E">// projektünkben, ami örökli a korábban a parancsnál</span></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">			</span><span style="color: #7F848E">// használt ModuleBase osztályt.</span></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">			</span><span style="color: #C678DD">await</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Interaction</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">AddModulesAsync</span><span style="color: #ABB2BF">(</span></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">				</span><span style="color: #C678DD">typeof</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">DNetTutorial</span><span style="color: #ABB2BF">).</span><span style="color: #E5C07B">Assembly</span><span style="color: #ABB2BF">, </span><span style="color: #C678DD">this</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">services</span><span style="color: #ABB2BF">);</span></span>
+<span class="line cbp-no-blur"></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">			</span><span style="color: #7F848E">// Az már ismert modulok segítségével regisztráljuk a</span></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">			</span><span style="color: #7F848E">// létrehozott parancsokat egy általunk kiválasztott</span></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">			</span><span style="color: #7F848E">// szerverre.</span></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">			</span><span style="color: #7F848E">// A true azt jelenti, hogy törli azokat a parancsokat,</span></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">			</span><span style="color: #7F848E">// amiket nem talál meg a modulok között.</span></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">			</span><span style="color: #C678DD">await</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Interaction</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">RegisterCommandsToGuildAsync</span><span style="color: #ABB2BF">(</span></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">				</span><span style="color: #D19A66">712287958274801695</span><span style="color: #ABB2BF">, </span><span style="color: #D19A66">true</span><span style="color: #ABB2BF">);</span></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">		};</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #ABB2BF">		</span><span style="color: #C678DD">await</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Task</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">Delay</span><span style="color: #ABB2BF">(</span><span style="color: #56B6C2">-</span><span style="color: #D19A66">1</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #ABB2BF">	}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #ABB2BF">	</span><span style="color: #C678DD">private</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Task</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">Log</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">LogMessage</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">message</span><span style="color: #ABB2BF">)</span></span>
+<span class="line"><span style="color: #ABB2BF">	{</span></span>
+<span class="line"><span style="color: #ABB2BF">		</span><span style="color: #E5C07B">Console</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">WriteLine</span><span style="color: #ABB2BF">(</span><span style="color: #E5C07B">message</span><span style="color: #ABB2BF">.</span><span style="color: #61AFEF">ToString</span><span style="color: #ABB2BF">());</span></span>
+<span class="line"><span style="color: #ABB2BF">		</span><span style="color: #C678DD">return</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Task</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">CompletedTask</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #ABB2BF">	}</span></span>
+<span class="line"><span style="color: #ABB2BF">}</span></span>
+<span class="line"></span></code></pre>
+</div>
 
 
 
-<p>Végül, de nem utolsó sorban, egy fontos adat erről az oldalról a <strong>Token</strong>. Ezt a <code>Reset Token</code> gombra kattintva lehet megtekinteni. Másoljuk ki és tegyük el valahova ideiglenesen, mert ennek a hosszú kódnak a segítségével tudunk majd belépni a Discord-ra a bottal.</p>
+<p>Ezennel el is készült minden, ami a parancs futtatásához szükséges. Innentől akármennyit létrehozhatunk, és biztosak lehetünk benne, hogy regisztrálva lesz és használható.<br>Ha futtatjuk a <code>/test</code> parancsot, akkor a botunk válaszol is az előre beállított szöveggel.</p>
 
 
 
-<p>Most hogy ez megvan, hívjuk be egy szerverre, ahol majd teszteljük a működését. Az <code>OAuth2</code> menüpontot nyissuk le. A General-ban tudunk beállítani alapértelmezett jogosultságokat, ami akkor lehet hasznos, ha a bot <strong>profil</strong>jára szeretnénk tenni egy <code>Add to Server</code> gombot. Most viszont először az <code>URL Generator</code>-ra van szükségünk.<br>A <code>scope</code>-ok közül válasszuk ki a <code>bot</code>-ot, mert egy botot akarunk beléptetni, illetve az <code>applications.commands</code>-ot, hogy létre tudjunk hozni <strong>parancsokat</strong>.<br>A <code>Bot Permission</code>-ök közül az egyszerűség kedvéért válasszuk ki az <code>Administrator</code>-t. Persze, ha rendes botot készítenénk, akkor csakis a szükségeseket kapcsoljuk be.<br>Ezek után már csak ki kell másolni a lent létrejött linket, megnyitni és kiválasztani, hogy hova szeretnénk behívni a botot.</p>
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="1238" height="982" src="https://14a-ma.github.io/wp-content/uploads/2022/12/image-4.png" alt="" class="wp-image-48"></figure>
 
 
 
-<figure class="wp-block-image size-full"><img decoding="async" loading="lazy" width="1162" height="1014" src="https://14a-ma.github.io/wp-content/uploads/2022/12/image-2.png" alt="" class="wp-image-24"></figure>
+<p>Az egyszerű parancsok unalmasak. Mi lenne ha parancs csoportokat csinálnánk? Szerencsére ehhez szinte semmi speciálisat nem kell csinálni. Menjünk vissza a <code>Test</code> parancsunkhoz és csináljunk belőle <strong>al-parancsot</strong>!<br>És ha már itt vagyunk és al-parancsokkal szórakozunk, akkor készítsünk még néhányat!</p>
 
 
 
-<p>Ezzel kész is vagyunk. A következő posztban létrehozunk egy C# projektet a botnak, megírjuk a kódot, hogy online legyen és néhány alap dolgot elmagyarázok.</p>
+<div class="wp-block-kevinbatdorf-code-block-pro cbp-has-line-numbers cbp-blur-enabled cbp-unblur-on-hover" style="font-size:.875rem;--cbp-line-number-color:#abb2bf;--cbp-line-number-width:15.399993896484375px;line-height:1.25rem">
+<span role="button" tabindex="0" data-code="using Discord;
+using Discord.Interactions;
+using Discord.WebSocket;
+
+namespace DNetTutorial.Commands;
+
+[RequireOwner] // Így az összes al-parancsot csak a tulajdonos használhatja
+[Group(&quot;test&quot;, &quot;Teszt parancsok&quot;)] // (név, leírás)
+public class Test : InteractionModuleBase
+{
+	// Ha létrehozunk egy publikusan elérhető property-t, akkor azt a
+	// DI automatikusan beinjektálja a fő osztályunkban lévő property-k
+	// alapján, ha a név megegyezik. Ebben a példában a klienst kérjük
+	// be, hogy az egyik parancsban kiolvashassunk belőle egy
+	// információt.
+	public DiscordSocketClient Client { get; set;}
+
+	[SlashCommand(&quot;hello-world&quot;, &quot;Hello World parancs&quot;)]
+	public async Task HelloWorld()
+	{
+		await RespondAsync(&quot;Hello World!&quot;);
+	}
+
+	// A metódus paraméterei a parancsban megadott argumentumok.
+	// A Summary attribútummal felülírhatjuk a paraméterek nevét és
+	// leírását.
+	[SlashCommand(&quot;hi&quot;, &quot;Üdvözlő parancs&quot;)]
+	public async Task Hi(
+		[Summary(name: &quot;Tag&quot;, description: &quot;Akit üdvözölünk&quot;)]
+		IUser user)
+	{
+		await RespondAsync($&quot;Hello {user.Mention}!&quot;);
+	}
+
+	// Most nem számuljuk ki a bot pingjét, hanem csak kipróbáljuk,
+	// hogyan lehet megemlíteni az aktuális felhasználót.
+	[SlashCommand(&quot;ping&quot;, &quot;Ping parancs&quot;)]
+	public async Task Ping()
+	{
+		// A Context változóban találunk jópár hasznos dolgot.
+		await RespondAsync($&quot;Pong! {Context.User.Mention}&quot;);
+	}
+
+	[SlashCommand(&quot;guild-count&quot;, &quot;Szerverek száma, ahol a bot bent van&quot;)]
+	public async Task GuildCount()
+	{
+		await RespondAsync($&quot;A bot **`{Client.Guilds.Count}`** szerveren van bent.&quot;);
+	}
+}
+" style="color:#abb2bf;display:none" aria-label="Copy" class="code-block-pro-copy-button"><svg xmlns="http://www.w3.org/2000/svg" style="width:24px;height:24px" fill="none" viewbox="0 0 24 24" stroke="currentColor" stroke-width="2"><path class="with-check" stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path><path class="without-check" stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path></svg></span><pre class="shiki" style="background-color: #282c34"><code><span class="line cbp-no-blur"><span style="color: #C678DD">using</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Discord</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"><span style="color: #C678DD">using</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Discord</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">Interactions</span><span style="color: #ABB2BF">;</span></span>
+<span class="line cbp-no-blur"><span style="color: #C678DD">using</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Discord</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">WebSocket</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #C678DD">namespace</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">DNetTutorial</span><span style="color: #ABB2BF">.</span><span style="color: #E5C07B">Commands</span><span style="color: #ABB2BF">;</span></span>
+<span class="line"></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">[</span><span style="color: #E5C07B">RequireOwner</span><span style="color: #ABB2BF">] </span><span style="color: #7F848E">// Így az összes al-parancsot csak a tulajdonos használhatja</span></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">[</span><span style="color: #E5C07B">Group</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;test&quot;</span><span style="color: #ABB2BF">, </span><span style="color: #98C379">&quot;Teszt parancsok&quot;</span><span style="color: #ABB2BF">)] </span><span style="color: #7F848E">// (név, leírás)</span></span>
+<span class="line"><span style="color: #C678DD">public</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">class</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Test</span><span style="color: #ABB2BF"> : </span><span style="color: #E5C07B">InteractionModuleBase</span></span>
+<span class="line"><span style="color: #ABB2BF">{</span></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">	</span><span style="color: #7F848E">// Ha létrehozunk egy publikusan elérhető property-t, akkor azt a</span></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">	</span><span style="color: #7F848E">// DI automatikusan beinjektálja a fő osztályunkban lévő property-k</span></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">	</span><span style="color: #7F848E">// alapján, ha a név megegyezik. Ebben a példában a klienst kérjük</span></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">	</span><span style="color: #7F848E">// be, hogy az egyik parancsban kiolvashassunk belőle egy</span></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">	</span><span style="color: #7F848E">// információt.</span></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">	</span><span style="color: #C678DD">public</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">DiscordSocketClient</span><span style="color: #ABB2BF"> Client { </span><span style="color: #C678DD">get</span><span style="color: #ABB2BF">; </span><span style="color: #C678DD">set</span><span style="color: #ABB2BF">;}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #ABB2BF">	[</span><span style="color: #E5C07B">SlashCommand</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;hello-world&quot;</span><span style="color: #ABB2BF">, </span><span style="color: #98C379">&quot;Hello World parancs&quot;</span><span style="color: #ABB2BF">)]</span></span>
+<span class="line"><span style="color: #ABB2BF">	</span><span style="color: #C678DD">public</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">async</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Task</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">HelloWorld</span><span style="color: #ABB2BF">()</span></span>
+<span class="line"><span style="color: #ABB2BF">	{</span></span>
+<span class="line"><span style="color: #ABB2BF">		</span><span style="color: #C678DD">await</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">RespondAsync</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;Hello World!&quot;</span><span style="color: #ABB2BF">);</span></span>
+<span class="line"><span style="color: #ABB2BF">	}</span></span>
+<span class="line"></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">	</span><span style="color: #7F848E">// A metódus paraméterei a parancsban megadott argumentumok.</span></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">	</span><span style="color: #7F848E">// A Summary attribútummal felülírhatjuk a paraméterek nevét és</span></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">	</span><span style="color: #7F848E">// leírását.</span></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">	[</span><span style="color: #E5C07B">SlashCommand</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;hi&quot;</span><span style="color: #ABB2BF">, </span><span style="color: #98C379">&quot;Üdvözlő parancs&quot;</span><span style="color: #ABB2BF">)]</span></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">	</span><span style="color: #C678DD">public</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">async</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Task</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">Hi</span><span style="color: #ABB2BF">(</span></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">		[</span><span style="color: #E5C07B">Summary</span><span style="color: #ABB2BF">(</span><span style="color: #E06C75">name</span><span style="color: #ABB2BF">: </span><span style="color: #98C379">&quot;Tag&quot;</span><span style="color: #ABB2BF">, </span><span style="color: #E06C75">description</span><span style="color: #ABB2BF">: </span><span style="color: #98C379">&quot;Akit üdvözölünk&quot;</span><span style="color: #ABB2BF">)]</span></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">		</span><span style="color: #E5C07B">IUser</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">user</span><span style="color: #ABB2BF">)</span></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">	{</span></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">		</span><span style="color: #C678DD">await</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">RespondAsync</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">$&quot;Hello {</span><span style="color: #E5C07B">user</span><span style="color: #98C379">.</span><span style="color: #E5C07B">Mention</span><span style="color: #98C379">}!&quot;</span><span style="color: #ABB2BF">);</span></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">	}</span></span>
+<span class="line cbp-no-blur"></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">	</span><span style="color: #7F848E">// Most nem számuljuk ki a bot pingjét, hanem csak kipróbáljuk,</span></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">	</span><span style="color: #7F848E">// hogyan lehet megemlíteni az aktuális felhasználót.</span></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">	[</span><span style="color: #E5C07B">SlashCommand</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;ping&quot;</span><span style="color: #ABB2BF">, </span><span style="color: #98C379">&quot;Ping parancs&quot;</span><span style="color: #ABB2BF">)]</span></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">	</span><span style="color: #C678DD">public</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">async</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Task</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">Ping</span><span style="color: #ABB2BF">()</span></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">	{</span></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">		</span><span style="color: #7F848E">// A Context változóban találunk jópár hasznos dolgot.</span></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">		</span><span style="color: #C678DD">await</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">RespondAsync</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">$&quot;Pong! {</span><span style="color: #E5C07B">Context</span><span style="color: #98C379">.</span><span style="color: #E5C07B">User</span><span style="color: #98C379">.</span><span style="color: #E5C07B">Mention</span><span style="color: #98C379">}&quot;</span><span style="color: #ABB2BF">);</span></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">	}</span></span>
+<span class="line cbp-no-blur"></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">	[</span><span style="color: #E5C07B">SlashCommand</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;guild-count&quot;</span><span style="color: #ABB2BF">, </span><span style="color: #98C379">&quot;Szerverek száma, ahol a bot bent van&quot;</span><span style="color: #ABB2BF">)]</span></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">	</span><span style="color: #C678DD">public</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">async</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Task</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">GuildCount</span><span style="color: #ABB2BF">()</span></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">	{</span></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">		</span><span style="color: #C678DD">await</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">RespondAsync</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">$&quot;A bot **`{</span><span style="color: #E5C07B">Client</span><span style="color: #98C379">.</span><span style="color: #E5C07B">Guilds</span><span style="color: #98C379">.</span><span style="color: #E5C07B">Count</span><span style="color: #98C379">}`** szerveren van bent.&quot;</span><span style="color: #ABB2BF">);</span></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">	}</span></span>
+<span class="line"><span style="color: #ABB2BF">}</span></span>
+<span class="line"></span></code></pre>
+</div>
+
+
+
+<p>Végül nézzük meg Discord-on, hogy mit alkottunk. A parancsok mind megjelennek ugyan abban a kategóriában.</p>
+
+
+
+<figure class="wp-block-image size-full"><img decoding="async" loading="lazy" width="1239" height="980" src="https://14a-ma.github.io/wp-content/uploads/2022/12/image-5.png" alt="" class="wp-image-54"></figure>
+
+
+
+<p>Az egyes parancsokat futtatva, pedig ezeket a válaszokat kapjuk:</p>
+
+
+
+<figure class="wp-block-image size-full"><img decoding="async" loading="lazy" width="1234" height="982" src="https://14a-ma.github.io/wp-content/uploads/2022/12/image-6.png" alt="" class="wp-image-55"></figure>
+
+
+
+<p>Köszönöm, hogy végigolvastad ezt az egyszerű kis tutorialt! Remélem tanultál valami újat. Ha meglesnéd a kész botot, akkor látogass el <a rel="noreferrer noopener" href="https://github.com/14A-MA/DNetTutorial" target="_blank">Github Repository</a>-jába. További információt a Discord.NET-ről a <a rel="noreferrer noopener" href="https://discordnet.dev/" target="_blank">hivatalos oldalukon</a> találsz.</p>
 </div>
 
 
@@ -151,7 +467,7 @@ img.emoji {
 
 <div class="is-layout-constrained wp-block-group">
 <div class="is-layout-flex wp-block-group">
-<div style="font-style:italic;font-weight:400;" class="wp-block-post-date has-small-font-size"><time datetime="2022-12-07T07:14:25+00:00">December 7, 2022</time></div>
+<div style="font-style:italic;font-weight:400;" class="wp-block-post-date has-small-font-size"><time datetime="2022-12-08T19:11:37+00:00">December 8, 2022</time></div>
 
 <div class="wp-block-post-author has-small-font-size"><div class="wp-block-post-author__content"><p class="wp-block-post-author__name">m-attila</p></div></div>
 
