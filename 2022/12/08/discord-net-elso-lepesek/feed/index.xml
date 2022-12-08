@@ -7,9 +7,9 @@
 	>
 <channel>
 	<title>
-	Comments for Discord.NET	</title>
-	<atom:link href="https://14a-ma.github.io/comments/feed/" rel="self" type="application/rss+xml" />
-	<link>https://14a-ma.github.io</link>
+	Comments on: Discord.NET &#8211; Első lépések	</title>
+	<atom:link href="https://14a-ma.github.io/2022/12/08/discord-net-elso-lepesek/feed/" rel="self" type="application/rss+xml" />
+	<link>https://14a-ma.github.io/2022/12/08/discord-net-elso-lepesek/</link>
 	<description>Bevezető a Discord.NET keretrendszer világába</description>
 	<lastBuildDate>Thu, 08 Dec 2022 18:37:56 +0000</lastBuildDate>
 	<sy:updatePeriod>
