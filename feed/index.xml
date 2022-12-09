@@ -12,7 +12,7 @@
 	<atom:link href="https://14a-ma.github.io/feed/" rel="self" type="application/rss+xml" />
 	<link>https://14a-ma.github.io</link>
 	<description>Bevezető a Discord.NET keretrendszer világába</description>
-	<lastBuildDate>Thu, 08 Dec 2022 20:33:07 +0000</lastBuildDate>
+	<lastBuildDate>Fri, 09 Dec 2022 08:57:51 +0000</lastBuildDate>
 	<language>en-US</language>
 	<sy:updatePeriod>
 	hourly	</sy:updatePeriod>
@@ -250,7 +250,7 @@ public class DNetTutorial
 
 
 
-<div class="wp-block-kevinbatdorf-code-block-pro cbp-has-line-numbers cbp-blur-enabled cbp-unblur-on-hover" style="font-size:.875rem;--cbp-line-number-color:#abb2bf;--cbp-line-number-width:15.399993896484375px;line-height:1.25rem"><span role="button" tabindex="0" data-code="using Discord;
+<div class="wp-block-kevinbatdorf-code-block-pro cbp-blur-enabled cbp-unblur-on-hover" style="font-size:.875rem;line-height:1.25rem"><span role="button" tabindex="0" data-code="using Discord;
 using Discord.Interactions;
 using Discord.WebSocket;
 
@@ -296,7 +296,9 @@ public class Test : InteractionModuleBase
 	[SlashCommand(&quot;guild-count&quot;, &quot;Szerverek száma, ahol a bot bent van&quot;)]
 	public async Task GuildCount()
 	{
-		await RespondAsync($&quot;A bot **`{Client.Guilds.Count}`** szerveren van bent.&quot;);
+		await RespondAsync(
+			$&quot;A bot **`{Client.Guilds.Count}`** szerveren van bent.&quot;
+		);
 	}
 }
 " style="color:#abb2bf;display:none" aria-label="Copy" class="code-block-pro-copy-button"><svg xmlns="http://www.w3.org/2000/svg" style="width:24px;height:24px" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path class="with-check" stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path><path class="without-check" stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path></svg></span><pre class="shiki" style="background-color: #282c34"><code><span class="line cbp-no-blur"><span style="color: #C678DD">using</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Discord</span><span style="color: #ABB2BF">;</span></span>
@@ -345,7 +347,9 @@ public class Test : InteractionModuleBase
 <span class="line cbp-no-blur"><span style="color: #ABB2BF">	[</span><span style="color: #E5C07B">SlashCommand</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">&quot;guild-count&quot;</span><span style="color: #ABB2BF">, </span><span style="color: #98C379">&quot;Szerverek száma, ahol a bot bent van&quot;</span><span style="color: #ABB2BF">)]</span></span>
 <span class="line cbp-no-blur"><span style="color: #ABB2BF">	</span><span style="color: #C678DD">public</span><span style="color: #ABB2BF"> </span><span style="color: #C678DD">async</span><span style="color: #ABB2BF"> </span><span style="color: #E5C07B">Task</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">GuildCount</span><span style="color: #ABB2BF">()</span></span>
 <span class="line cbp-no-blur"><span style="color: #ABB2BF">	{</span></span>
-<span class="line cbp-no-blur"><span style="color: #ABB2BF">		</span><span style="color: #C678DD">await</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">RespondAsync</span><span style="color: #ABB2BF">(</span><span style="color: #98C379">$&quot;A bot **`{</span><span style="color: #E5C07B">Client</span><span style="color: #98C379">.</span><span style="color: #E5C07B">Guilds</span><span style="color: #98C379">.</span><span style="color: #E5C07B">Count</span><span style="color: #98C379">}`** szerveren van bent.&quot;</span><span style="color: #ABB2BF">);</span></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">		</span><span style="color: #C678DD">await</span><span style="color: #ABB2BF"> </span><span style="color: #61AFEF">RespondAsync</span><span style="color: #ABB2BF">(</span></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">			</span><span style="color: #98C379">$&quot;A bot **`{</span><span style="color: #E5C07B">Client</span><span style="color: #98C379">.</span><span style="color: #E5C07B">Guilds</span><span style="color: #98C379">.</span><span style="color: #E5C07B">Count</span><span style="color: #98C379">}`** szerveren van bent.&quot;</span></span>
+<span class="line cbp-no-blur"><span style="color: #ABB2BF">		);</span></span>
 <span class="line cbp-no-blur"><span style="color: #ABB2BF">	}</span></span>
 <span class="line"><span style="color: #ABB2BF">}</span></span>
 <span class="line"></span></code></pre></div>
